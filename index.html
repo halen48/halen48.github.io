@@ -334,14 +334,19 @@
                 <!-- Project 1: Eruption Engine -->
                 <div class="glass-panel bg-card hover:bg-cardHover rounded-2xl p-8 flex flex-col gap-5 border-l-4 border-l-accent card-glow group">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
-                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">Eruption Engine</h4>
-                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-red-500/10 text-red-400 border border-red-500/20">
-                            Proprietary 2.5D Pixel-Art Renderer
+                        <div class="flex flex-wrap items-center gap-4">
+                            <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">Eruption Engine</h4>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-sm font-mono text-accent hover:text-white transition-colors border-b border-accent/30 hover:border-white/50">
+                                [GitHub Repo]
+                            </a>
+                        </div>
+                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+                            Open Source (Apache 2.0)
                         </span>
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        A proprietary 2.5D Pixel-Art game engine built from scratch. Features dynamic rendering, bindless descriptors, deferred shading (5 G-Buffers), and compute shaders for real-time physics and lighting. Developed entirely in <span class="text-white font-mono">C++17 / Vulkan 1.3</span>. The engine is cross-platform, with all performance benchmarks and core testing conducted natively in a Linux environment. It is named as a tribute to Van Halen's legendary guitar solo, playing on the words "Vulkan" (Volcano) and "Eruption". <br><br><span class="text-xs text-accent/80 font-mono">:: Note: Demonstrations use temporary third-party assets to showcase the rendering pipeline. The proprietary engine architecture, Vulkan backend, and real-time shading systems are the core focus.</span>
+                        An open-source 2.5D Pixel-Art game engine built from scratch. Features dynamic rendering, bindless descriptors, deferred shading (5 G-Buffers), and compute shaders for real-time physics and lighting. Developed entirely in <span class="text-white font-mono">C++17 / Vulkan 1.3</span>. The engine is cross-platform, with all performance benchmarks and core testing conducted natively in a Linux environment. It is named as a tribute to Van Halen's legendary guitar solo, playing on the words "Vulkan" (Volcano) and "Eruption". <br><br><span class="text-xs text-accent/80 font-mono">:: Note: Demonstrations use temporary third-party assets to showcase the rendering pipeline. The open-source engine architecture, Vulkan backend, and real-time shading systems are the core focus.</span>
                     </p>
 
                     <!-- Media Gallery -->
@@ -463,6 +468,42 @@
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: Tabletop Strategy</h4>
                         <p class="text-textMuted text-base leading-relaxed">Avid collector and player of Magic: The Gathering. The deep strategic deck-building and complex rule interactions share a strong parallel with software architecture and optimization.</p>
+                    </div>
+                </div>
+
+                <!-- JRPG & Retro Collection -->
+                <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col md:flex-row md:col-span-2">
+                    <div class="md:w-1/2 h-64 md:h-auto flex gap-1 bg-black/50 p-1 min-h-[16rem]">
+                        <a href="ff_collection_1.jpg" target="_blank" class="w-1/2 h-full overflow-hidden rounded-l-xl cursor-zoom-in relative group/img">
+                            <img src="ff_collection_1.jpg" alt="Retro Collection 1" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="Retro Collection: My complete Final Fantasy and JRPG collection." onerror="this.style.display='none'">
+                            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
+                        </a>
+                        <div class="w-1/2 grid grid-cols-3 grid-rows-2 gap-1 h-full">
+                            <a href="ff_collection_6.jpg" target="_blank" class="overflow-hidden row-span-2 col-span-1 cursor-zoom-in relative group/img">
+                                <img src="ff_collection_6.jpg" alt="FFXIV Collector's Edition" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="Retro Collection: FFXIV A Realm Reborn Collector's Edition." onerror="this.style.display='none'">
+                                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
+                            </a>
+                            <a href="ff_collection_3.jpg" target="_blank" class="overflow-hidden cursor-zoom-in relative group/img">
+                                <img src="ff_collection_3.jpg" alt="Retro Collection 3" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="Retro Collection: Super Famicom classics like Chrono Trigger." onerror="this.style.display='none'">
+                                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
+                            </a>
+                            <a href="ff_collection_4.jpg" target="_blank" class="overflow-hidden rounded-tr-xl cursor-zoom-in relative group/img">
+                                <img src="ff_collection_4.jpg" alt="Retro Collection 4" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="Retro Collection: Original Japanese PS1 Final Fantasy boxes and MTG x Final Fantasy Collector's boxes." onerror="this.style.display='none'">
+                                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
+                            </a>
+                            <a href="ff_collection_2.jpg" target="_blank" class="overflow-hidden cursor-zoom-in relative group/img">
+                                <img src="ff_collection_2.jpg" alt="Retro Collection 2" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="Retro Collection: GameBoy Pokemon games." onerror="this.style.display='none'">
+                                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
+                            </a>
+                            <a href="ff_collection_5.jpg" target="_blank" class="overflow-hidden rounded-br-xl cursor-zoom-in relative group/img">
+                                <img src="ff_collection_5.jpg" alt="Retro Collection 5" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="Retro Collection: The PlayStation eras." onerror="this.style.display='none'">
+                                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6 md:w-1/2 flex flex-col justify-center">
+                        <h4 class="text-xl font-bold text-white mb-2 font-mono">:: Retro Game Hunter</h4>
+                        <p class="text-textMuted text-base leading-relaxed">Dedicated collector of the complete Final Fantasy series and spin-offs. I personally completed this collection during a trip to Japan, traveling extensively through the Kanto region to scour retro shops and physically hunt down these original copies.</p>
                     </div>
                 </div>
 
