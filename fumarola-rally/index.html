@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fumarola Rally</title>
+<!-- Casca web do jogo (GitHub Pages: halen48.github.io/fumarola-rally/). O
+     motor entra como eruption.js + eruption.wasm (Emscripten, MODULARIZE,
+     createEruption) e o jogo como game.pak, tudo nesta pasta. Nada é baixado
+     antes de o navegador provar que tem WebGPU. Sem threads: não precisa de
+     COOP/COEP, então roda dentro de um iframe no github.io. -->
+<style>
+  :root { --fundo: #0d0806; --texto: #ffe9c2; --destaque: #ffb347; --apagado: #9c8a6c; }
+  html, body { margin: 0; height: 100%; background: var(--fundo); color: var(--texto);
+               font: 15px/1.4 system-ui, sans-serif; overflow: hidden; }
+  #eruption-canvas { display: block; width: 100%; height: 100%; }
+  #painel { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 14px; padding: 16px; text-align: center; background: var(--fundo); }
+  h1 { margin: 0; color: var(--destaque); letter-spacing: 0.08em; font-size: clamp(22px, 5vw, 40px); }
+  #msg { color: var(--apagado); max-width: 32em; }
+  #barra { width: min(320px, 80%); height: 6px; background: #2a1a12; border-radius: 3px; overflow: hidden; }
+  #barra > div { width: 0; height: 100%; background: var(--destaque); transition: width 0.2s; }
+  .oculto { display: none !important; }
+</style>
+</head>
+<body>
+<canvas id="eruption-canvas" tabindex="0"></canvas>
+<div id="painel">
+  <h1>FUMAROLA RALLY</h1>
+  <div id="barra"><div></div></div>
+  <div id="msg">Verificando o navegador…</div>
+</div>
+<script>
+(async () => {
+  const msg = document.getElementById("msg");
+  const barra = document.querySelector("#barra > div");
+  const painel = document.getElementById("painel");
+  const falha = (texto) => { msg.textContent = texto; barra.parentElement.classList.add("oculto"); };
+
+  // WebGPU é obrigatório: testar antes de baixar qualquer coisa pesada.
+  const adaptador = navigator.gpu && await navigator.gpu.requestAdapter().catch(() => null);
+  if (!adaptador) {
+    falha("Este navegador não tem WebGPU. Use Chrome ou Edge atualizados (no Linux, Firefox/Chrome com WebGPU ligado).");
+    return;
+  }
+
+  // Motor ainda não publicado: a página continua honesta em vez de quebrar.
+  const temMotor = await fetch("eruption.js", { method: "HEAD" }).then(r => r.ok).catch(() => false);
+  if (!temMotor) {
+    falha("A versão para navegador está em construção. Volte em breve.");
+    return;
+  }
+
+  msg.textContent = "Carregando…";
+  const script = document.createElement("script");
+  script.src = "eruption.js";
+  script.onload = async () => {
+    try {
+      await createEruption({
+        canvas: document.getElementById("eruption-canvas"),
+        pakUrl: "game.pak",
+        onProgress: (bytes, total) => {
+          barra.style.width = (total > 0 ? Math.round(100 * bytes / total) : 0) + "%";
+          msg.textContent = total > 0 ? `Carregando… ${(bytes / 1048576).toFixed(1)} de ${(total / 1048576).toFixed(1)} MB` : "Carregando…";
+        },
+        onReady: () => { painel.classList.add("oculto"); document.getElementById("eruption-canvas").focus(); },
+      });
+    } catch (e) {
+      falha("Não deu para iniciar o jogo: " + e);
+    }
+  };
+  script.onerror = () => falha("Não deu para baixar o motor.");
+  document.body.appendChild(script);
+})();
+</script>
+</body>
+</html>
