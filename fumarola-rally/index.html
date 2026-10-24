@@ -6,7 +6,7 @@
 <title>Fumarola Rally</title>
 <!-- Casca web do jogo (GitHub Pages: halen48.github.io/fumarola-rally/). O
      motor entra como eruption.js + eruption.wasm (Emscripten, MODULARIZE,
-     createEruption) e o jogo como game.pak, tudo nesta pasta. Nada é baixado
+     createEruption) e o jogo como os pacotes de pacotes.json, tudo nesta pasta. Nada é baixado
      antes de o navegador provar que tem WebGPU. Sem threads: não precisa de
      COOP/COEP, então roda dentro de um iframe no github.io. -->
 <style>
@@ -51,18 +51,72 @@
     return;
   }
 
-  msg.textContent = "Carregando…";
+  // Pacotes do jogo (tools/web/empacota.py): gzip descomprimido pelo próprio
+  // navegador, depois cada arquivo vai para o sistema de arquivos do
+  // Emscripten antes de o motor iniciar. O motor lê os caminhos de sempre.
+  const pacotes = await fetch("pacotes.json").then(r => r.json());
+  const lista = [pacotes.base, ...Object.values(pacotes.mapas)];
+  const total = lista.reduce((t, p) => t + p.bytes, 0);
+  let baixado = 0;
+  const progresso = (n) => {
+    baixado += n;
+    barra.style.width = Math.round(100 * baixado / total) + "%";
+    msg.textContent = `Carregando… ${(baixado / 1048576).toFixed(1)} de ${(total / 1048576).toFixed(1)} MB`;
+  };
+
+  async function baixa(p) {
+    const r = await fetch(p.arquivo);
+    if (!r.ok) throw new Error(p.arquivo + ": " + r.status);
+    const contador = new TransformStream({ transform(pedaco, c) { progresso(pedaco.byteLength); c.enqueue(pedaco); } });
+    const cru = r.body.pipeThrough(contador).pipeThrough(new DecompressionStream("gzip"));
+    return new Uint8Array(await new Response(cru).arrayBuffer());
+  }
+
+  // "EPAK1", depois por arquivo: u32 caminho, caminho UTF-8, u32 tamanho, bytes.
+  function abre(buf) {
+    const dv = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
+    const txt = new TextDecoder();
+    if (txt.decode(buf.subarray(0, 5)) !== "EPAK1") throw new Error("pacote inválido");
+    const arquivos = [];
+    for (let o = 5; o < buf.length;) {
+      const nc = dv.getUint32(o, true); o += 4;
+      const caminho = txt.decode(buf.subarray(o, o + nc)); o += nc;
+      const n = dv.getUint32(o, true); o += 4;
+      arquivos.push([caminho, buf.subarray(o, o + n)]); o += n;
+    }
+    return arquivos;
+  }
+
+  function grava(FS, arquivos) {
+    for (const [caminho, dados] of arquivos) {
+      const partes = caminho.split("/");
+      let pasta = "";
+      for (const p of partes.slice(0, -1)) {
+        pasta += "/" + p;
+        try { FS.mkdir(pasta); } catch (_) { /* já existe */ }
+      }
+      FS.writeFile("/" + caminho, dados);
+    }
+  }
+
+  let arquivos = [];
+  try {
+    msg.textContent = "Carregando…";
+    for (const p of lista) arquivos = arquivos.concat(abre(await baixa(p)));
+  } catch (e) {
+    falha("Não deu para baixar o jogo: " + e.message);
+    return;
+  }
+
   const script = document.createElement("script");
   script.src = "eruption.js";
   script.onload = async () => {
     try {
       await createEruption({
         canvas: document.getElementById("eruption-canvas"),
-        pakUrl: "game.pak",
-        onProgress: (bytes, total) => {
-          barra.style.width = (total > 0 ? Math.round(100 * bytes / total) : 0) + "%";
-          msg.textContent = total > 0 ? `Carregando… ${(bytes / 1048576).toFixed(1)} de ${(total / 1048576).toFixed(1)} MB` : "Carregando…";
-        },
+        // Precisa de -sEXPORTED_RUNTIME_METHODS=FS no build do motor.
+        preRun: [(m) => grava(m.FS, arquivos)],
+        arguments: ["--project", "/", "--game"],
         onReady: () => { painel.classList.add("oculto"); document.getElementById("eruption-canvas").focus(); },
       });
     } catch (e) {
