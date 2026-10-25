@@ -56,7 +56,12 @@
   // navegador, depois cada arquivo vai para o sistema de arquivos do
   // Emscripten antes de o motor iniciar. O motor lê os caminhos de sempre.
   const pacotes = await fetch("pacotes.json").then(r => r.json());
-  const lista = [pacotes.base, ...Object.values(pacotes.mapas)];
+  // Primeiro só a base e a pista da 1ª etapa (a meta da primeira imagem é
+  // ~8 MB); as outras pistas descem com o jogo já rodando, bem antes da 2ª
+  // etapa (cada corrida dura uns 2 minutos).
+  const mapas = Object.values(pacotes.mapas);
+  const lista = [pacotes.base, mapas[0]];
+  const depois = mapas.slice(1);
   const total = lista.reduce((t, p) => t + p.bytes, 0);
   let baixado = 0;
   const progresso = (n) => {
@@ -113,13 +118,17 @@
   script.src = "eruption.js";
   script.onload = async () => {
     try {
-      await createEruption({
+      const motor = await createEruption({
         canvas: document.getElementById("eruption-canvas"),
         // Precisa de -sEXPORTED_RUNTIME_METHODS=FS no build do motor.
         preRun: [(m) => grava(m.FS, arquivos)],
         arguments: ["--project", "/", "--game"],
         onReady: () => { painel.classList.add("oculto"); document.getElementById("eruption-canvas").focus(); },
       });
+      for (const p of depois) {
+        try { grava(motor.FS, abre(await baixa(p))); }
+        catch (e) { console.warn("pista não baixou:", p.arquivo, e); }
+      }
     } catch (e) {
       falha("Não deu para iniciar o jogo: " + e);
     }
