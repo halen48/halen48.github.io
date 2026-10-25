@@ -7,7 +7,7 @@
 <!-- Casca web do jogo (GitHub Pages: halen48.github.io/fumarola-rally/). O
      motor entra como eruption.js + eruption.wasm (Emscripten, MODULARIZE,
      createEruption) e o jogo como os pacotes de pacotes.json, tudo nesta pasta. Nada é baixado
-     antes de o navegador provar que desenha 3D (WebGPU ou WebGL2). Sem threads: não precisa de
+     antes de o navegador provar que desenha 3D (WebGL2). Sem threads: não precisa de
      COOP/COEP, então roda dentro de um iframe no github.io. -->
 <style>
   :root { --fundo: #0d0806; --texto: #ffe9c2; --destaque: #ffb347; --apagado: #9c8a6c; }
@@ -44,16 +44,13 @@
     return;
   }
 
-  // Acessível primeiro: WebGPU quando o navegador entrega uma placa, senão
-  // WebGL2 (todo navegador de 2017 para cá, Brave e Chrome do Linux sem flag
-  // inclusive). Só barra se não houver nenhum dos dois.
-  const adaptador = navigator.gpu && await navigator.gpu.requestAdapter().catch(() => null);
-  const temWebGL2 = !!document.createElement("canvas").getContext("webgl2");
-  if (!adaptador && !temWebGL2) {
-    falha("Este navegador não desenha 3D (sem WebGPU nem WebGL2). Tente atualizá-lo.");
+  // Acessível primeiro: a base é WebGL2 (todo navegador de 2017 para cá,
+  // Brave e Chrome do Linux sem flag inclusive); WebGPU, quando houver, é
+  // escolha do motor. Só barra se nem WebGL2 existir.
+  if (!document.createElement("canvas").getContext("webgl2")) {
+    falha("Este navegador não desenha 3D (sem WebGL2). Tente atualizá-lo.");
     return;
   }
-  const backend = adaptador ? "webgpu" : "webgl2";
 
   // Pacotes do jogo (tools/web/empacota.py): gzip descomprimido pelo próprio
   // navegador, depois cada arquivo vai para o sistema de arquivos do
@@ -120,7 +117,7 @@
         canvas: document.getElementById("eruption-canvas"),
         // Precisa de -sEXPORTED_RUNTIME_METHODS=FS no build do motor.
         preRun: [(m) => grava(m.FS, arquivos)],
-        arguments: ["--project", "/", "--game", "--web-backend", backend], // backend: combinar com o motor
+        arguments: ["--project", "/", "--game"],
         onReady: () => { painel.classList.add("oculto"); document.getElementById("eruption-canvas").focus(); },
       });
     } catch (e) {
