@@ -315,7 +315,7 @@
                     <!-- Demo jogável: só a imagem até o clique; o iframe (motor + jogo) nasce no clique. -->
                     <div class="flex flex-col gap-3">
                         <h4 class="font-mono text-lg text-white">Fumarola Rally: demo ao vivo</h4>
-                        <p class="text-textMuted text-sm leading-relaxed">Jogo de corrida HD-2D feito na engine, rodando no navegador por WebGPU. Só carrega quando você clica.</p>
+                        <p class="text-textMuted text-sm leading-relaxed">Jogo de corrida HD-2D feito na engine, rodando no navegador (WebGPU, ou WebGL2 em qualquer navegador). Só carrega quando você clica.</p>
                         <div id="fumarola-demo" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
                             <img src="./eruption-engine/fumarola_rally.jpg" alt="Fumarola Rally, corrida HD-2D na Eruption Engine" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
                             <button type="button" class="absolute inset-0 m-auto h-14 w-max px-6 rounded-full bg-accent/90 hover:bg-accent text-black font-mono font-bold transition-colors" onclick="var d=document.getElementById('fumarola-demo');d.innerHTML='<iframe class=&quot;absolute inset-0 w-full h-full&quot; src=&quot;https://halen48.github.io/fumarola-rally/&quot; title=&quot;Fumarola Rally&quot; allow=&quot;fullscreen; gamepad; autoplay&quot; allowfullscreen></iframe>';">&#9654; Jogar no navegador</button>

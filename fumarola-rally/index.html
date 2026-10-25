@@ -7,7 +7,7 @@
 <!-- Casca web do jogo (GitHub Pages: halen48.github.io/fumarola-rally/). O
      motor entra como eruption.js + eruption.wasm (Emscripten, MODULARIZE,
      createEruption) e o jogo como os pacotes de pacotes.json, tudo nesta pasta. Nada é baixado
-     antes de o navegador provar que tem WebGPU. Sem threads: não precisa de
+     antes de o navegador provar que desenha 3D (WebGPU ou WebGL2). Sem threads: não precisa de
      COOP/COEP, então roda dentro de um iframe no github.io. -->
 <style>
   :root { --fundo: #0d0806; --texto: #ffe9c2; --destaque: #ffb347; --apagado: #9c8a6c; }
@@ -37,19 +37,23 @@
   const painel = document.getElementById("painel");
   const falha = (texto) => { msg.textContent = texto; barra.parentElement.classList.add("oculto"); };
 
-  // WebGPU é obrigatório: testar antes de baixar qualquer coisa pesada.
-  const adaptador = navigator.gpu && await navigator.gpu.requestAdapter().catch(() => null);
-  if (!adaptador) {
-    falha("Este navegador não tem WebGPU. Use Chrome ou Edge atualizados (no Linux, Firefox/Chrome com WebGPU ligado).");
-    return;
-  }
-
   // Motor ainda não publicado: a página continua honesta em vez de quebrar.
   const temMotor = await fetch("eruption.js", { method: "HEAD" }).then(r => r.ok).catch(() => false);
   if (!temMotor) {
     falha("A versão para navegador está em construção. Volte em breve.");
     return;
   }
+
+  // Acessível primeiro: WebGPU quando o navegador entrega uma placa, senão
+  // WebGL2 (todo navegador de 2017 para cá, Brave e Chrome do Linux sem flag
+  // inclusive). Só barra se não houver nenhum dos dois.
+  const adaptador = navigator.gpu && await navigator.gpu.requestAdapter().catch(() => null);
+  const temWebGL2 = !!document.createElement("canvas").getContext("webgl2");
+  if (!adaptador && !temWebGL2) {
+    falha("Este navegador não desenha 3D (sem WebGPU nem WebGL2). Tente atualizá-lo.");
+    return;
+  }
+  const backend = adaptador ? "webgpu" : "webgl2";
 
   // Pacotes do jogo (tools/web/empacota.py): gzip descomprimido pelo próprio
   // navegador, depois cada arquivo vai para o sistema de arquivos do
@@ -116,7 +120,7 @@
         canvas: document.getElementById("eruption-canvas"),
         // Precisa de -sEXPORTED_RUNTIME_METHODS=FS no build do motor.
         preRun: [(m) => grava(m.FS, arquivos)],
-        arguments: ["--project", "/", "--game"],
+        arguments: ["--project", "/", "--game", "--web-backend", backend], // backend: combinar com o motor
         onReady: () => { painel.classList.add("oculto"); document.getElementById("eruption-canvas").focus(); },
       });
     } catch (e) {
