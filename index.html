@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guilherme Apolinário Silva Novaes | Graphics & Engine Programmer</title>
+    <title>Guilherme Apolinário Silva Novaes | Real-Time Rendering & GPU Engineer</title>
+    <meta name="description" content="Real-time rendering, GPU performance and image processing. Creator of Eruption Engine (C++17, Vulkan 1.3). Postdoctoral researcher at USP. Open to consulting, partnerships and full-time roles.">
+    <meta property="og:title" content="Guilherme Apolinário Silva Novaes | Real-Time Rendering & GPU Engineer">
+    <meta property="og:description" content="Real-time rendering, GPU performance and image processing. Creator of Eruption Engine (C++17, Vulkan 1.3). Postdoctoral researcher at USP. Open to consulting, partnerships and full-time roles.">
+    <meta property="og:image" content="https://halen48.github.io/eruption-engine/editor_cena.jpg">
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -148,10 +152,12 @@
                 </h1>
                 <h2 class="text-xl md:text-2xl text-accent font-mono flex items-center gap-3">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                    Postdoctoral Researcher | Graphics Programmer
+                    Real-time Rendering · GPU Performance · Image Processing
                 </h2>
+                <p class="text-textMuted text-base md:text-lg leading-relaxed max-w-2xl">I build Eruption Engine (C++17, Vulkan 1.3) and, as a postdoc at USP, research real-time rendering techniques, including PBR, and moiré reduction without deep learning. I help game and graphics teams with renderer architecture, GPU profiling and optimization, and image quality for upscalers.</p>
                 
                 <div class="flex flex-wrap gap-4 mt-2">
+                    <a href="#eruption" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-darker font-mono text-sm font-bold hover:brightness-110 transition-all w-max">&#9654; Live demo</a>
                     <a href="https://www.youtube.com/@vs.maquina" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-5 py-3 glass-panel rounded-full hover:bg-white/5 transition-all w-max border-white/10 group card-glow">
                         <svg class="w-6 h-6 text-[#FF0000] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23,-0.86 -0.908,-1.538 -1.768,-1.768C18.254,4 12,4 12,4s-6.254,0 -7.814,0.418c-0.86,0.23 -1.538,0.908 -1.768,1.768C2,7.746 2,12 2,12s0,4.254 0.418,5.814c0.23,0.86 0.908,1.538 1.768,1.768C5.746,20 12,20 12,20s6.254,0 7.814,-0.418c0.86,-0.23 1.538,-0.908 1.768,-1.768C22,16.254 22,12 22,12s0,-4.254 -0.418,-5.814zM10,15.464V8.536L16,12L10,15.464z"/></svg>
                         <span class="font-mono text-sm text-white">Creator of <span class="text-accent font-bold">@vs.maquina</span></span>
@@ -235,7 +241,7 @@
                         <span class="px-3 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/20">Vulkan 1.3</span>
                     </div>
 
-                    <p class="text-textMuted text-base leading-relaxed max-w-4xl">Eruption Engine renders 3D scenes with a diorama look: a tilted camera, miniature depth of field, 2D sprites living alongside 3D geometry, and physically based lighting. It is written in plain C++17 directly on Vulkan 1.3, with no intermediate layers. It is designed to run well on anything from an old integrated GPU to current cards, scaling quality through parameters instead of switching features off.</p>
+                    <p class="text-textMuted text-base leading-relaxed max-w-4xl">Eruption Engine renders 3D scenes with a diorama look: a tilted camera, miniature depth of field, 2D sprites living alongside 3D geometry, and physically based lighting. It is written in plain C++17 directly on Vulkan 1.3, with no intermediate layers. Quality scales through presets and parameters instead of switching features off.</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
@@ -252,7 +258,7 @@
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">Weather and atmosphere</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">More than 40 weather types, rain and snow occluded by geometry, wet surfaces, fog, day/night cycle and volumetric clouds.</p>
+                            <p class="text-sm text-textMuted leading-relaxed">40 weather types, rain and snow occluded by geometry, wet surfaces, fog, day/night cycle and volumetric clouds.</p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">Water and post-processing</h4>
@@ -315,14 +321,91 @@
                     <!-- Demo jogável: só a imagem até o clique; o iframe (motor + jogo) nasce no clique. -->
                     <div class="flex flex-col gap-3">
                         <h4 class="font-mono text-lg text-white">Fumarola Rally: live demo</h4>
-                        <p class="text-textMuted text-sm leading-relaxed">An HD-2D racing game built on the engine, running in the browser (WebGPU, or WebGL2 on any browser). It only loads when you click.</p>
+                        <p class="text-textMuted text-sm leading-relaxed">A 2.5D racing game built on the engine: sprite cars on 3D tracks. Runs in the browser (WebGL2). It only loads when you click.</p>
                         <div id="fumarola-demo" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
-                            <img src="./eruption-engine/fumarola_rally.jpg" alt="Fumarola Rally, HD-2D racing on Eruption Engine" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
+                            <img src="./eruption-engine/fumarola_rally.jpg" alt="Fumarola Rally, 2.5D racing on Eruption Engine" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
                             <button type="button" class="absolute inset-0 m-auto h-14 w-max px-6 rounded-full bg-accent/90 hover:bg-accent text-black font-mono font-bold transition-colors" onclick="var d=document.getElementById('fumarola-demo');d.innerHTML='<iframe class=&quot;absolute inset-0 w-full h-full&quot; src=&quot;https://halen48.github.io/fumarola-rally/&quot; title=&quot;Fumarola Rally&quot; allow=&quot;fullscreen; gamepad; autoplay&quot; allowfullscreen></iframe>';">&#9654; Play in the browser</button>
                         </div>
+                        <a href="https://halen48.github.io/fumarola-rally/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent hover:underline w-max">Open full screen &#8599;</a>
                     </div>
 
                     <p class="font-mono text-xs text-textMuted/70 leading-relaxed">The demos use third-party CC0 assets. The focus of the project is the engine architecture, the Vulkan backend and the real-time shading systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pbr-material" class="flex flex-col gap-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.38s;">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <h3 class="text-2xl font-bold text-white font-mono">Material Generation</h3>
+                <span class="text-sm font-mono text-accent">Research in progress</span>
+            </div>
+            <div class="glass-panel bg-card rounded-2xl border-l-4 border-l-accent overflow-hidden card-glow p-6 md:p-8 flex flex-col gap-4">
+                <p class="text-textMuted text-base leading-relaxed max-w-4xl">Automatic generation of PBR material maps from an ordinary color texture. Rotate the objects, move the light and fade the generated material in and out (relief, roughness and occlusion). I am open to pilots and consulting.</p>
+                <div id="pbr-viewer" data-base="./pbr/"></div>
+                <p class="font-mono text-xs text-textMuted/70 leading-relaxed">Textures: ambientCG (CC0): Rock030, Bricks075A, Wood049.</p>
+            </div>
+            <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+            <script type="module" src="./pbr/viewer.js"></script>
+        </section>
+
+        <!-- 1.5 Hire Me / Consulting -->
+        <section id="contratar" class="flex flex-col gap-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="glass-panel bg-card rounded-2xl border-accent/30 shadow-[0_0_30px_rgba(0,240,255,0.08)] overflow-hidden">
+                <div class="bg-white/5 border-b border-white/5 px-4 py-3 flex items-center gap-2">
+                    <div class="flex gap-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <div class="ml-4 font-mono text-xs text-textMuted flex-grow text-center">collaborate.sh</div>
+                </div>
+
+                <div class="p-6 md:p-8 flex flex-col gap-8">
+                    <div class="flex flex-col gap-3">
+                        <div class="font-mono text-sm"><span class="text-accent">gui@portfolio</span>:<span class="text-blue-400">~</span>$ ./collaborate.sh</div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white">Collaboration</h3>
+                        <p class="text-textMuted leading-relaxed max-w-3xl">
+                            I'm interested in projects and collaborations in high-performance computer graphics and image processing.
+                            My focus is real-time rendering, GPU optimization and applied computer vision, including industrial and clinical projects under NDA.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
+                            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            <h4 class="font-mono text-white font-bold">Rendering &amp; GPU Optimization</h4>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                Vulkan, CUDA and OpenCL. Renderer architecture, deferred shading, compute shaders and GPU bottleneck profiling.
+                            </p>
+                        </div>
+                        <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
+                            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            <h4 class="font-mono text-white font-bold">Computer Vision</h4>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                GPU image processing pipelines, halftoning, moiré removal and automated visual inspection. With and without deep learning.
+                            </p>
+                        </div>
+                        <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
+                            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.247m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.247"></path></svg>
+                            <h4 class="font-mono text-white font-bold">Technical guidance</h4>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                For developers moving past tutorials into writing their own engine. Vulkan, engine architecture and computer graphics, in English, Portuguese or Japanese.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                        <a href="https://www.linkedin.com/in/g-novaes/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-accent text-darker font-mono font-bold hover:brightness-110 transition-all card-glow">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:g.novaes@usp.br" class="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl glass-panel border-white/10 font-mono text-white hover:bg-white/5 transition-all">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            Send an email
+                        </a>
+                        <p class="font-mono text-xs text-textMuted sm:ml-2">Open to consulting, partnerships and full-time roles. Get in touch.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -357,7 +440,7 @@
                     <h4 class="text-xl font-bold text-white">Postdoctoral Researcher</h4>
                     <p class="text-accent font-mono text-sm mb-2">Universidade de São Paulo (USP) | 2025 - Present</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        Focused on real-time downscaling and severe moiré pattern removal. Developing computationally lightweight algorithmic techniques without Deep Learning to provide pristine inputs for upscalers (like DLSS), effectively eliminating moiré and shimmering artifacts.
+                        Researching real-time rendering techniques, including PBR, and post-processing focused on moiré pattern reduction. Developing computationally lightweight algorithmic techniques without Deep Learning to provide clean inputs for upscalers (like DLSS), reducing moiré and shimmering artifacts.
                     </p>
                 </div>
 
@@ -437,7 +520,7 @@
         </section>
 
         <p class="text-textMuted text-center text-lg italic opacity-0 animate-fade-in-up" style="animation-delay: 0.45s;">
-            "Yes, I have two patents and published in IEEE. I also have 100% achievements in Final Fantasy VI. Both required the same level of obsession."
+            "Yes, I have filed two patents and published in IEEE. I also have 100% achievements in Final Fantasy VI. Both required the same level of obsession."
         </p>
 
         <!-- 5. Projects & Research -->
@@ -448,21 +531,19 @@
             
             <div class="grid grid-cols-1 gap-12">
                 
-                <!-- Project 2: High-Concurrency MMORPG Server Engine -->
+                <!-- Project 1: USP postdoc, downscaling and moire -->
                 <div class="glass-panel bg-card hover:bg-cardHover rounded-2xl p-8 flex flex-col gap-5 border-l-4 border-l-white/20 hover:border-l-accent card-glow group">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
-                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">High-Concurrency Server Architecture</h4>
-                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                            C/C++ Network
+                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">Real-time Rendering: PBR &amp; Moiré Reduction</h4>
+                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">
+                            USP postdoc, 2025 -
                         </span>
                     </div>
-                    
                     <p class="text-textMuted text-base leading-relaxed">
-                        Over a decade of experience maintaining and heavily optimizing high-concurrency custom MMORPG server engines and network architectures. Re-engineered server architecture to handle complex RTS-like mechanics, including low-level socket programming, multithreading, and rapid binary packet processing for thousands of concurrent connections.
+                        Researching real-time rendering techniques, including PBR, and post-processing focused on moiré pattern reduction. Developing computationally lightweight algorithmic techniques without Deep Learning to provide clean inputs for upscalers (like DLSS), reducing moiré and shimmering artifacts.
                     </p>
-
-                    <!-- Image Gallery Placeholders -->
-                    <div class="flex overflow-x-auto gap-4 mt-2 pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                    <div class="bg-black/30 rounded-lg p-4 font-mono text-sm border border-white/5 inline-block mt-2">
+                        <span class="text-accent">#</span> Rendering · PBR · Post-processing
                     </div>
                 </div>
 
@@ -471,18 +552,22 @@
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
                         <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">AI-Driven Halftone System</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">
-                            Patent BR10202600565
+                            Patent application BR1020260056510
                         </span>
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        Hold a registered patent for a high-resolution halftone system leveraging Deep Learning (TensorFlow/CUDA). Validated in academic circles with direct applications to game engine texture upscaling.
+                        Filed a patent application for a high-resolution halftone system leveraging Deep Learning (TensorFlow/CUDA). Published in IEEE Access (2024), with direct applications to game engine texture upscaling.
                     </p>
                     
                     <div class="flex flex-wrap gap-4 mt-2">
+                        <a href="https://doi.org/10.1109/ACCESS.2024.3352431" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 px-5 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/30 text-accent rounded-lg font-mono text-sm transition-all hover:scale-[1.02] shadow-[0_0_15px_rgba(0,240,255,0.1)]">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            Paper (IEEE Access)
+                        </a>
                         <a href="https://github.com/halen48/Halftone-Enhance/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 px-5 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/30 text-accent rounded-lg font-mono text-sm transition-all hover:scale-[1.02] shadow-[0_0_15px_rgba(0,240,255,0.1)]">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            View Publication
+                            Code (GitHub)
                         </a>
                     </div>
                 </div>
@@ -492,12 +577,12 @@
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
                         <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">FPGA NoC Hardware Optimization</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">
-                            Patent BR1020220061947
+                            Patent application BR1020220061947
                         </span>
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        Developed a patented method for task mapping and module placement in Network-on-Chip (NoC) systems for programmable integrated circuits (FPGAs) using Adaptive Tabu Search algorithms. Published in IEEE LASCAS.
+                        Developed a method (patent application filed) for task mapping and module placement in Network-on-Chip (NoC) systems for programmable integrated circuits (FPGAs) using Adaptive Tabu Search algorithms. Published in IEEE LASCAS.
                     </p>
                     
                     <div class="bg-black/30 rounded-lg p-4 font-mono text-sm border border-white/5 inline-block mt-2">
@@ -515,11 +600,30 @@
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        Applied GPU-accelerated deep learning to handle large 3D volumetric medical datasets. Focus on end-to-end training of convolutional networks for cancer detection in mammography. Published in the Journal of Clinical Oncology.
+                        Applied GPU-accelerated deep learning to handle large 3D volumetric medical datasets. Focus on end-to-end training of convolutional networks for cancer detection in mammography. Abstract published in the Journal of Clinical Oncology (ASCO).
                     </p>
                     
                     <div class="bg-black/30 rounded-lg p-4 font-mono text-sm border border-white/5 inline-block mt-2">
                         <span class="text-accent">#</span> Deep Learning · Volumetric Rendering · Image Processing
+                    </div>
+                </div>
+
+
+                <!-- Project 2: High-Concurrency MMORPG Server Engine -->
+                <div class="glass-panel bg-card hover:bg-cardHover rounded-2xl p-8 flex flex-col gap-5 border-l-4 border-l-white/20 hover:border-l-accent card-glow group">
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
+                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">MMORPG Server Emulation &amp; Network Architecture</h4>
+                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            C/C++ Network
+                        </span>
+                    </div>
+                    
+                    <p class="text-textMuted text-base leading-relaxed">
+                        Over a decade maintaining and optimizing MMORPG server emulators in C/C++, working at the protocol level on high-concurrency network architecture. Re-engineered server architecture to handle complex RTS-like mechanics, including low-level socket programming, multithreading, and rapid binary packet processing for thousands of concurrent connections.
+                    </p>
+
+                    <!-- Image Gallery Placeholders -->
+                    <div class="flex overflow-x-auto gap-4 mt-2 pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
                     </div>
                 </div>
 
@@ -780,67 +884,6 @@
             </div>
         </section>
 
-        <!-- 1.5 Hire Me / Consulting -->
-        <section id="contratar" class="flex flex-col gap-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s;">
-            <div class="glass-panel bg-card rounded-2xl border-accent/30 shadow-[0_0_30px_rgba(0,240,255,0.08)] overflow-hidden">
-                <div class="bg-white/5 border-b border-white/5 px-4 py-3 flex items-center gap-2">
-                    <div class="flex gap-1.5">
-                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                    </div>
-                    <div class="ml-4 font-mono text-xs text-textMuted flex-grow text-center">collaborate.sh</div>
-                </div>
-
-                <div class="p-6 md:p-8 flex flex-col gap-8">
-                    <div class="flex flex-col gap-3">
-                        <div class="font-mono text-sm"><span class="text-accent">gui@portfolio</span>:<span class="text-blue-400">~</span>$ ./collaborate.sh</div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-white">Collaboration</h3>
-                        <p class="text-textMuted leading-relaxed max-w-3xl">
-                            I'm interested in projects and collaborations in high-performance computer graphics and image processing.
-                            My focus is real-time rendering, GPU optimization and applied computer vision, including industrial and clinical projects under NDA.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                        <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
-                            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            <h4 class="font-mono text-white font-bold">Rendering &amp; GPU Optimization</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">
-                                Vulkan, CUDA and OpenCL. Renderer architecture, deferred shading, compute shaders and GPU bottleneck profiling.
-                            </p>
-                        </div>
-                        <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
-                            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                            <h4 class="font-mono text-white font-bold">Computer Vision</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">
-                                GPU image processing pipelines, halftoning, moiré removal and automated visual inspection. With and without deep learning.
-                            </p>
-                        </div>
-                        <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
-                            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.247m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.247"></path></svg>
-                            <h4 class="font-mono text-white font-bold">Technical guidance</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">
-                                For developers moving past tutorials into writing their own engine. Vulkan, engine architecture and computer graphics, in English, Portuguese or Japanese.
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                        <a href="https://www.linkedin.com/in/g-novaes/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-accent text-darker font-mono font-bold hover:brightness-110 transition-all card-glow">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            LinkedIn
-                        </a>
-                        <a href="mailto:contato_vs.maquina@outlook.com" class="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl glass-panel border-white/10 font-mono text-white hover:bg-white/5 transition-all">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            Send an email
-                        </a>
-                        <p class="font-mono text-xs text-textMuted sm:ml-2">Open to collaborations, consulting and technical guidance. Get in touch.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
     </main>
 
