@@ -7,12 +7,13 @@ const root = document.getElementById('pbr-viewer');
 if (root) {
   const lang = (document.documentElement.lang || 'en').slice(0, 2);
   const T = {
-    en: { drag: 'Drag to rotate', mat: 'Generated material', az: 'Light direction', el: 'Light height', auto: 'Auto-rotate', names: ['Rock', 'Stone wall', 'Wood'], fail: 'Your browser could not start WebGL.' },
-    pt: { drag: 'Arraste para girar', mat: 'Material gerado', az: 'Direção da luz', el: 'Altura da luz', auto: 'Girar sozinho', names: ['Pedra', 'Muro de pedra', 'Madeira'], fail: 'Seu navegador não conseguiu iniciar o WebGL.' },
-    ja: { drag: 'ドラッグで回転', mat: '生成マテリアル', az: '光の向き', el: '光の高さ', auto: '自動回転', names: ['岩', '石壁', '木材'], fail: 'WebGLを開始できませんでした。' },
+    en: { drag: 'Drag to rotate', mat: 'Generated material', relief: 'Relief', wet: 'Wet', az: 'Light direction', el: 'Light height', auto: 'Auto-rotate', names: ['MDF board', 'Speckled tile', 'Woven fabric'], fail: 'Your browser could not start WebGL.' },
+    pt: { drag: 'Arraste para girar', mat: 'Material gerado', relief: 'Relevo', wet: 'Molhado', az: 'Direção da luz', el: 'Altura da luz', auto: 'Girar sozinho', names: ['Placa de MDF', 'Ladrilho granilite', 'Tecido tramado'], fail: 'Seu navegador não conseguiu iniciar o WebGL.' },
+    ja: { drag: 'ドラッグで回転', mat: '生成マテリアル', relief: '凹凸', wet: '濡れ', az: '光の向き', el: '光の高さ', auto: '自動回転', names: ['MDF板', '御影石調タイル', '織物'], fail: 'WebGLを開始できませんでした。' },
   }[lang] || null;
-  const L = T || { drag: 'Drag to rotate', mat: 'Generated material', az: 'Light direction', el: 'Light height', auto: 'Auto-rotate', names: ['Rock', 'Stone wall', 'Wood'], fail: 'Your browser could not start WebGL.' };
-  const SETS = ['rock', 'stone', 'wood'];
+  const L = T || { drag: 'Drag to rotate', mat: 'Generated material', relief: 'Relief', wet: 'Wet', az: 'Light direction', el: 'Light height', auto: 'Auto-rotate', names: ['MDF board', 'Speckled tile', 'Woven fabric'], fail: 'Your browser could not start WebGL.' };
+  const SETS = ['mdf', 'tile', 'fabric'];
+  const DEFAULT_SET = 2;
   const base = root.dataset.base || './pbr/';
 
   root.innerHTML = `
@@ -23,6 +24,8 @@ if (root) {
     <div class="flex flex-wrap gap-2 mt-3" id="pbr-tabs"></div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mt-3 font-mono text-xs text-textMuted">
       <label class="flex flex-col gap-1"><span>${L.mat}: <b id="pbr-mixv" class="text-accent">100%</b></span><input id="pbr-mix" type="range" min="0" max="100" value="100" class="accent-accent"></label>
+      <label class="flex flex-col gap-1"><span>${L.relief}: <b id="pbr-reliefv" class="text-accent">200%</b></span><input id="pbr-relief" type="range" min="0" max="400" value="200" class="accent-accent"></label>
+      <label class="flex flex-col gap-1"><span>${L.wet}: <b id="pbr-wetv" class="text-accent">0%</b></span><input id="pbr-wet" type="range" min="0" max="100" value="0" class="accent-accent"></label>
       <label class="flex flex-col gap-1"><span>${L.az}</span><input id="pbr-az" type="range" min="0" max="360" value="325" class="accent-accent"></label>
       <label class="flex flex-col gap-1"><span>${L.el}</span><input id="pbr-el" type="range" min="5" max="85" value="45" class="accent-accent"></label>
       <label class="flex items-center gap-2 self-end"><input id="pbr-auto" type="checkbox" checked class="accent-accent"><span>${L.auto}</span></label>
@@ -59,14 +62,26 @@ if (root) {
     scene.add(light);
 
     const uMix = { value: 1 };
+    const uWet = { value: 0 };
+    let relief = 2;
     const mats = [];
     const makeMat = () => {
       const m = new THREE.MeshStandardMaterial({ roughness: 1, metalness: 1, envMapIntensity: 0.3 });
       m.onBeforeCompile = (sh) => {
-        sh.uniforms.uMix = uMix;
-        sh.fragmentShader = 'uniform float uMix;\n' + sh.fragmentShader
-          .replace('roughnessFactor *= texelRoughness.g;', 'roughnessFactor = mix(0.6, roughnessFactor * texelRoughness.g, uMix);')
-          .replace('metalnessFactor *= texelMetalness.b;', 'metalnessFactor = metalnessFactor * texelMetalness.b * uMix;');
+        sh.uniforms.uMix = uMix; sh.uniforms.uWet = uWet;
+        // onBeforeCompile recebe o shader com os #include ainda nao expandidos: o trecho do chunk precisa ser trocado pelo codigo expandido.
+        const rough = THREE.ShaderChunk.roughnessmap_fragment.replace('roughnessFactor *= texelRoughness.g;', [
+          '// Molhado guiado pelos mapas PBR: a agua se acumula onde a oclusao e baixa e escurece mais o que e poroso (rugoso).',
+          'float aoW = mix(1.0, texture2D(aoMap, vAoMapUv).r, uMix);',
+          'float wetM = uWet * mix(0.85, 1.0, 1.0 - aoW);',
+          'float rBase = mix(0.6, roughnessFactor * texelRoughness.g, uMix);',
+          'roughnessFactor = mix(rBase, 0.05 + 0.1 * rBase, wetM);',
+          'diffuseColor.rgb = pow(diffuseColor.rgb, vec3(1.0 + 0.35 * wetM * (0.4 + 0.6 * texelRoughness.g))) * (1.0 - 0.08 * wetM);'
+        ].join('\n'));
+        const metal = THREE.ShaderChunk.metalnessmap_fragment.replace('metalnessFactor *= texelMetalness.b;', 'metalnessFactor = metalnessFactor * texelMetalness.b * uMix;');
+        sh.fragmentShader = 'uniform float uMix;\nuniform float uWet;\n' + sh.fragmentShader
+          .replace('#include <roughnessmap_fragment>', rough)
+          .replace('#include <metalnessmap_fragment>', metal);
       };
       mats.push(m); return m;
     };
@@ -82,7 +97,7 @@ if (root) {
       const get = (suffix, srgb) => {
         const t = loader.load(`${base}${name}_${suffix}.webp`);
         t.wrapS = t.wrapT = THREE.RepeatWrapping;
-        t.repeat.set(2, 2); t.anisotropy = 8;
+        t.repeat.set(1, 1); t.anisotropy = 8;
         if (srgb) t.colorSpace = THREE.SRGBColorSpace;
         return t;
       };
@@ -98,7 +113,7 @@ if (root) {
     };
     const applyMix = () => {
       const k = uMix.value;
-      for (const m of mats) { m.normalScale.set(k, k); m.aoMapIntensity = k; }
+      for (const m of mats) { m.normalScale.set(k * relief, k * relief); m.aoMapIntensity = k; m.envMapIntensity = 0.3 - 0.15 * uWet.value; }
     };
 
     SETS.forEach((name, i) => {
@@ -106,10 +121,10 @@ if (root) {
       b.type = 'button'; b.textContent = L.names[i];
       b.className = 'px-3 py-1.5 rounded-full border font-mono text-xs transition-colors';
       b.onclick = () => { [...tabs.children].forEach((x) => x.classList.remove('border-accent', 'text-accent')); b.classList.add('border-accent', 'text-accent'); setTexture(name); };
-      b.classList.add(i === 1 ? 'border-accent' : 'border-white/10', i === 1 ? 'text-accent' : 'text-textMuted');
+      b.classList.add(i === DEFAULT_SET ? 'border-accent' : 'border-white/10', i === DEFAULT_SET ? 'text-accent' : 'text-textMuted');
       tabs.appendChild(b);
     });
-    setTexture('stone');
+    setTexture(SETS[DEFAULT_SET]);
 
     const $ = (id) => root.querySelector(id);
     // A luz acompanha a camera: o angulo do slider e' relativo a quem olha, entao nada fica escuro ao orbitar.
@@ -120,6 +135,8 @@ if (root) {
     };
     let spin = true;
     $('#pbr-mix').oninput = (e) => { uMix.value = e.target.value / 100; $('#pbr-mixv').textContent = e.target.value + '%'; applyMix(); };
+    $('#pbr-relief').oninput = (e) => { relief = e.target.value / 100; $('#pbr-reliefv').textContent = e.target.value + '%'; applyMix(); };
+    $('#pbr-wet').oninput = (e) => { uWet.value = e.target.value / 100; $('#pbr-wetv').textContent = e.target.value + '%'; applyMix(); };
     $('#pbr-auto').onchange = (e) => { spin = e.target.checked; };
 
     const resize = () => {
