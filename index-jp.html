@@ -154,7 +154,7 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                     リアルタイムレンダリング・GPU最適化・画像処理
                 </h2>
-                <p class="text-textMuted text-base md:text-lg leading-relaxed max-w-2xl">自作ゲームエンジン Eruption Engine（C++17 / Vulkan 1.3）の開発者。サンパウロ大学（USP）のポスドクとして、リアルタイムレンダリング技術（PBRなど）と、ディープラーニングを使わないモアレ低減を研究しています。ゲーム・グラフィックス開発チームに向けて、レンダラ設計、GPUボトルネックの解析と最適化、アップスケーラー向けの画質改善をご支援します。</p>
+                <p class="text-textMuted text-base md:text-lg leading-relaxed max-w-2xl">自作ゲームエンジン Eruption Engine（C++17 / Vulkan 1.3）の開発者。サンパウロ大学（USP）のポスドクとして、リアルタイムレンダリングと画像処理（テクスチャのPBR復元やモアレ低減）を研究しています。ゲーム・グラフィックス開発チームに向けて、エンジン設計、レガシーアセットのPBR現代化、GPU最適化、画質改善をご支援します。</p>
                 
                 <div class="flex flex-wrap gap-4 mt-2">
                     <a href="#eruption" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-darker font-mono text-sm font-bold hover:brightness-110 transition-all w-max">&#9654; ライブデモ</a>
@@ -329,6 +329,17 @@
                         <a href="https://halen48.github.io/fumarola-rally/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent hover:underline w-max">フルスクリーンで開く &#8599;</a>
                     </div>
 
+                    <div class="flex flex-col gap-3">
+                        <h4 class="font-mono text-lg text-white">Vilarejo：アセット現代化（ライブデモ）</h4>
+                        <p class="text-textMuted text-sm leading-relaxed">クラシックアセット現代化のデモ：MMORPG『Ryzom』（2004年、当時は陰影のないディフューズテクスチャのみ）の元モデルとテクスチャを復元し、フルPBRマテリアル（凹凸・ラフネス・オクルージョン）へ変換。Eruption Engine上で物理ライティングと水表現を加えて動作させています。ブラウザ（WebGL2）で動作し、クリック時のみ読み込みます。</p>
+                        <div id="vilarejo-demo" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
+                            <img src="./eruption-engine/vilarejo.jpg" alt="Eruption Engineの川辺の村" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
+                            <button type="button" class="absolute inset-0 m-auto h-14 w-max px-6 rounded-full bg-accent/90 hover:bg-accent text-black font-mono font-bold transition-colors" onclick="var d=document.getElementById('vilarejo-demo');d.innerHTML='<iframe class=&quot;absolute inset-0 w-full h-full&quot; src=&quot;https://halen48.github.io/vilarejo-web/&quot; title=&quot;Vilarejo&quot; allow=&quot;fullscreen&quot; allowfullscreen></iframe>';">&#9654; ブラウザで開く</button>
+                        </div>
+                        <a href="https://halen48.github.io/vilarejo-web/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent hover:underline w-max">フルスクリーンで開く &#8599;</a>
+                        <p class="font-mono text-xs text-textMuted/70">元アセット：Ryzom（CC BY-SA 3.0）、クラシックテクスチャからPBRへリマスター。</p>
+                    </div>
+
                     <p class="font-mono text-xs text-textMuted/70 leading-relaxed">デモにはサードパーティの CC0 アセットを使用しています。本プロジェクトの主眼は、エンジンのアーキテクチャ、Vulkan バックエンド、リアルタイムシェーディングです。</p>
                 </div>
             </div>
@@ -336,11 +347,11 @@
 
         <section id="pbr-material" class="flex flex-col gap-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.38s;">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                <h3 class="text-2xl font-bold text-white font-mono">マテリアル生成</h3>
+                <h3 class="text-2xl font-bold text-white font-mono">画像復元＆PBRマテリアル生成</h3>
                 <span class="text-sm font-mono text-accent">研究中</span>
             </div>
             <div class="glass-panel bg-card rounded-2xl border-l-4 border-l-accent overflow-hidden card-glow p-6 md:p-8 flex flex-col gap-4">
-                <p class="text-textMuted text-base leading-relaxed max-w-4xl">通常のカラーテクスチャからPBRマテリアルマップを自動生成する研究です。オブジェクトを回し、光を動かし、凹凸の強さと濡れ具合を調整し、生成したマテリアル（凹凸、ラフネス、オクルージョン）のオン・オフを試せます。パイロットやコンサルティングのご相談を歓迎します。</p>
+                <p class="text-textMuted text-base leading-relaxed max-w-4xl">画像復元および通常のカラー／レガシーテクスチャからのPBRマテリアル自動生成（クラシックアセットの現代化、デジタルアーカイブ、写真スキャン向け）。オリジナルの質感を損なうことなく、凹凸、物理ラフネス、アンビエントオクルージョンを再構築します。オブジェクトを回し、光を動かし、凹凸の強さと濡れ具合を調整し、生成したマテリアルのオン・オフを試せます。実証実験や技術コンサルのご相談を歓迎します。</p>
                 <div id="pbr-viewer" data-base="./pbr/"></div>
                 <p class="font-mono text-xs text-textMuted/70 leading-relaxed">テクスチャ: 筆者撮影。</p>
             </div>
@@ -379,9 +390,9 @@
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
                             <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                            <h4 class="font-mono text-white font-bold">コンピュータビジョン</h4>
+                            <h4 class="font-mono text-white font-bold">コンピュータビジョン＆画像復元</h4>
                             <p class="text-sm text-textMuted leading-relaxed">
-                                GPUによる画像処理パイプライン、ハーフトーン処理、モアレ除去、外観検査の自動化。ディープラーニングの有無を問わず対応します。
+                                GPU画像処理パイプライン、画像復元・超解像、レガシーテクスチャのPBR現代化（クラシックゲーム・デジタルアーカイブ向け）、モアレ除去、自動外観検査。ディープラーニング併用・非併用の両方に対応。
                             </p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">

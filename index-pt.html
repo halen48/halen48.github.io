@@ -154,7 +154,7 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                     Renderização em tempo real · Desempenho de GPU · Processamento de imagem
                 </h2>
-                <p class="text-textMuted text-base md:text-lg leading-relaxed max-w-2xl">Criei a Eruption Engine (C++17, Vulkan 1.3) e pesquiso na USP técnicas de renderização em tempo real, incluindo PBR, e a redução de moiré sem deep learning. Ajudo equipes de jogos e gráficos com arquitetura de renderer, profiling e otimização de GPU e qualidade de imagem para upscalers.</p>
+                <p class="text-textMuted text-base md:text-lg leading-relaxed max-w-2xl">Criei a Eruption Engine (C++17, Vulkan 1.3) e pesquiso na USP técnicas de renderização em tempo real e processamento de imagens, incluindo restauração de texturas para PBR e redução de moiré. Ajudo equipes com arquitetura de engine, modernização de assets legados (PBR), profiling de GPU e qualidade de imagem.</p>
                 
                 <div class="flex flex-wrap gap-4 mt-2">
                     <a href="#eruption" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-accent text-darker font-mono text-sm font-bold hover:brightness-110 transition-all w-max">&#9654; Demo ao vivo</a>
@@ -329,6 +329,17 @@
                         <a href="https://halen48.github.io/fumarola-rally/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent hover:underline w-max">Abrir em tela cheia &#8599;</a>
                     </div>
 
+                    <div class="flex flex-col gap-3">
+                        <h4 class="font-mono text-lg text-white">Vilarejo: modernização de assets (demo ao vivo)</h4>
+                        <p class="text-textMuted text-sm leading-relaxed">Demonstração de modernização de assets clássicos: os modelos e texturas originais do MMORPG Ryzom (2004, originalmente texturas difusas planas) foram restaurados e convertidos para materiais PBR completos (relevo, rugosidade e oclusão), com água e iluminação física do dia na Eruption Engine. Roda no navegador (WebGL2). Só carrega quando você clica.</p>
+                        <div id="vilarejo-demo" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
+                            <img src="./eruption-engine/vilarejo.jpg" alt="Vilarejo ribeirinho na Eruption Engine" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
+                            <button type="button" class="absolute inset-0 m-auto h-14 w-max px-6 rounded-full bg-accent/90 hover:bg-accent text-black font-mono font-bold transition-colors" onclick="var d=document.getElementById('vilarejo-demo');d.innerHTML='<iframe class=&quot;absolute inset-0 w-full h-full&quot; src=&quot;https://halen48.github.io/vilarejo-web/&quot; title=&quot;Vilarejo&quot; allow=&quot;fullscreen&quot; allowfullscreen></iframe>';">&#9654; Abrir no navegador</button>
+                        </div>
+                        <a href="https://halen48.github.io/vilarejo-web/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent hover:underline w-max">Abrir em tela cheia &#8599;</a>
+                        <p class="font-mono text-xs text-textMuted/70">Assets originais: Ryzom (CC BY-SA 3.0), modernizados para PBR a partir das texturas clássicas.</p>
+                    </div>
+
                     <p class="font-mono text-xs text-textMuted/70 leading-relaxed">As demonstrações usam assets CC0 de terceiros. O foco do projeto é a arquitetura da engine, o backend Vulkan e os sistemas de sombreamento em tempo real.</p>
                 </div>
             </div>
@@ -336,11 +347,11 @@
 
         <section id="pbr-material" class="flex flex-col gap-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.38s;">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                <h3 class="text-2xl font-bold text-white font-mono">Geração de Material</h3>
+                <h3 class="text-2xl font-bold text-white font-mono">Restauração de Imagem &amp; Geração PBR</h3>
                 <span class="text-sm font-mono text-accent">Pesquisa em andamento</span>
             </div>
             <div class="glass-panel bg-card rounded-2xl border-l-4 border-l-accent overflow-hidden card-glow p-6 md:p-8 flex flex-col gap-4">
-                <p class="text-textMuted text-base leading-relaxed max-w-4xl">Geração automática de mapas de material PBR a partir de uma textura de cor comum. Gire os objetos, mova a luz, ajuste a força do relevo e o quanto a superfície está molhada, e ligue ou desligue o material gerado (relevo, rugosidade e oclusão). Aberto a pilotos e consultoria.</p>
+                <p class="text-textMuted text-base leading-relaxed max-w-4xl">Restauração de textura e inferência automática de materiais PBR a partir de imagens ou texturas de cor comuns (ideal para modernização de assets clássicos, acervos e scans). O pipeline reconstrói relevo, rugosidade física e oclusão preservando a fidelidade visual original sem artefatos. Gire os objetos, mova a luz, ajuste a força do relevo e o quanto a superfície está molhada, e compare o antes/depois ligando e desligando o material. Aberto a pilotos e consultoria.</p>
                 <div id="pbr-viewer" data-base="./pbr/"></div>
                 <p class="font-mono text-xs text-textMuted/70 leading-relaxed">Texturas: fotos do autor.</p>
             </div>
@@ -379,9 +390,9 @@
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
                             <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                            <h4 class="font-mono text-white font-bold">Visão Computacional</h4>
+                            <h4 class="font-mono text-white font-bold">Visão Computacional &amp; Restauração</h4>
                             <p class="text-sm text-textMuted leading-relaxed">
-                                Pipelines de processamento de imagens em GPU, halftoning, remoção de moiré e inspeção visual automatizada. Com e sem deep learning.
+                                Pipelines de processamento de imagens em GPU, restauração e super-resolução, modernização de texturas para PBR (jogos clássicos e acervos), remoção de moiré e inspeção automatizada. Com e sem deep learning.
                             </p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
