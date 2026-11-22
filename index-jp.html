@@ -183,7 +183,7 @@
                     <p class="text-lg text-textMuted leading-relaxed">
                         サンパウロ大学（USP）ポスドク研究員。サントス・カトリック大学（UniSantos）ではコンピュータグラフィックス、画像処理、GPUプログラミングを教えています。<br><br>
                         博士（画像処理・超解像）、修士（マイクロエレクトロニクス）。特許出願2件、IEEE論文あり。<br><br>
-                        専門は画像処理で、リアルタイムグラフィックスはその応用先です。仕事の言語は英語とポルトガル語です（日本語は日常会話レベル）。
+                        専門は画像処理で、リアルタイムグラフィックスはその応用先です。仕事では英語とポルトガル語を使います（日本語は日常会話レベル）。
                     </p>
                 </div>
             </div>
@@ -228,22 +228,22 @@
                 <div class="glass-panel bg-card rounded-2xl border-l-4 border-l-accent overflow-hidden card-glow p-6 md:p-8 flex flex-col gap-5">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
                         <h4 class="text-2xl font-bold text-white">古いテクスチャ &rarr; PBRマテリアル一式</h4>
-                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">研究進行中 &middot; USPポスドク研究</span>
+                        <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">研究進行中 &middot; USPポスドク</span>
                     </div>
                     <p class="text-textMuted text-base leading-relaxed max-w-4xl">通常のカラーテクスチャや写真から、PBRマテリアル一式（凹凸、ラフネス、アンビエントオクルージョン）を生成する深層学習パイプラインです。元の見た目を保ったままテクスチャを復元します。クラシックゲームのリマスター、デジタルアーカイブ、写真スキャン向け。手法は論文発表まで非公開ですが、結果は以下で公開しています。</p>
-                    <p class="text-textMuted text-sm leading-relaxed max-w-4xl">オブジェクトを回転し、ライトを動かし、凹凸の強さと濡れ具合を調整し、生成したマテリアルのオン・オフを切り替えて比較できます。</p>
+                    <p class="text-textMuted text-sm leading-relaxed max-w-4xl">オブジェクトの回転、ライトの移動、凹凸の強さと濡れ具合の調整ができます。生成したマテリアルのオン・オフを切り替えて、見比べてみてください。</p>
                     <div id="pbr-viewer" data-base="./pbr/"></div>
-                    <p class="font-mono text-xs text-textMuted/70 leading-relaxed">テクスチャ: 筆者撮影。</p>
+                    <p class="font-mono text-xs text-textMuted/70 leading-relaxed">テクスチャ：筆者撮影。</p>
 
                     <div class="border-t border-white/5 pt-6 flex flex-col gap-3">
                         <h4 class="font-mono text-lg text-white">Vilarejo：2004年のMMORPGの村をリマスター（ライブデモ）</h4>
-                        <p class="text-textMuted text-sm leading-relaxed">MMORPG『Ryzom』（2004年）のモデルとテクスチャ。当時は陰影のないディフューズテクスチャのみでした。このシーンのPBRマテリアルはすべて上記のパイプラインで生成し、動的な水と昼光とともにEruption Engineで描画しています。ブラウザ（WebGL2）で動作し、クリックした時だけ読み込みます。</p>
+                        <p class="text-textMuted text-sm leading-relaxed">MMORPG『Ryzom』（2004年）のモデルとテクスチャ。当時のテクスチャはディフューズのみでした。このシーンのPBRマテリアルはすべて上記のパイプラインで生成し、動的な水面と日中のライティングを加えてEruption Engineで描画しています。ブラウザ（WebGL2）で動作し、クリックするまで読み込みません。</p>
                         <div id="vilarejo-demo" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
                             <img src="./eruption-engine/vilarejo.jpg" alt="Eruption Engineの川辺の村" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
                             <button type="button" class="absolute inset-0 m-auto h-14 w-max px-6 rounded-full bg-accent/90 hover:bg-accent text-black font-mono font-bold transition-colors" onclick="var d=document.getElementById('vilarejo-demo');d.innerHTML='<iframe class=&quot;absolute inset-0 w-full h-full&quot; src=&quot;https://halen48.github.io/vilarejo-web/&quot; title=&quot;Vilarejo&quot; allow=&quot;fullscreen&quot; allowfullscreen></iframe>';">&#9654; ブラウザで開く</button>
                         </div>
                         <a href="https://halen48.github.io/vilarejo-web/" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-accent hover:underline w-max">フルスクリーンで開く &#8599;</a>
-                        <p class="font-mono text-xs text-textMuted/70">元アセット：Ryzom（CC BY-SA 3.0）、クラシックテクスチャからPBRへリマスター。</p>
+                        <p class="font-mono text-xs text-textMuted/70">元アセット：Ryzom（CC BY-SA 3.0）、従来のディフューズテクスチャからPBR化。</p>
                     </div>
                 </div>
 
@@ -253,7 +253,7 @@
                         <h4 class="text-2xl font-bold text-white">ハーフトーン漫画の超解像</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">特許出願 BR1020260056510</span>
                     </div>
-                    <p class="text-textMuted text-base leading-relaxed">博士課程の超解像研究から生まれた、印刷された漫画を、高解像度のハーフトーン（網点）で拡大する深層学習システム（TensorFlow/CUDA）。IEEE Access（2024年）に掲載、特許出願済み。漫画のリマスターやテクスチャのアップスケーリングに応用できます。</p>
+                    <p class="text-textMuted text-base leading-relaxed">博士課程の超解像研究から生まれた深層学習システム（TensorFlow/CUDA）です。印刷された漫画を、網点（ハーフトーン）を高解像度で再現しながら拡大します。IEEE Access（2024年）に掲載、特許出願済み。漫画のリマスターやテクスチャのアップスケーリングに応用できます。</p>
                     <div class="flex flex-wrap gap-4 mt-2">
                         <a href="https://doi.org/10.1109/ACCESS.2024.3352431" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 px-5 py-3 bg-accent/10 hover:bg-accent/20 border border-accent/30 text-accent rounded-lg font-mono text-sm transition-all hover:scale-[1.02] shadow-[0_0_15px_rgba(0,240,255,0.1)]">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
@@ -272,7 +272,7 @@
                         <h4 class="text-2xl font-bold text-white">実運用のコンピュータビジョン</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">産業（24時間稼働）&middot; 医療</span>
                     </div>
-                    <p class="text-textMuted text-base leading-relaxed">24時間365日稼働するミッションクリティカルな物流現場向けのリアルタイムコンピュータビジョン（2025年、NDA締結案件）：低遅延の検出と、堅牢なハードウェア・ソフトウェア統合。それ以前は、サンパウロ大学医学部附属病院（Hospital das Clínicas）で約4年間、3D医療ボリュームデータのGPUパイプラインと深層学習によるセグメンテーションモデルを構築しました。</p>
+                    <p class="text-textMuted text-base leading-relaxed">24時間365日稼働するミッションクリティカルな物流現場向けのリアルタイムコンピュータビジョンを開発しました（2025年、NDA締結案件）。低遅延の検出と、ハードウェア・ソフトウェアの堅牢な統合が中心です。それ以前は、サンパウロ大学医学部附属病院（Hospital das Clínicas）で約4年間、3D医療ボリュームデータのGPUパイプラインと深層学習によるセグメンテーションモデルを構築しました。</p>
                     <div class="bg-black/30 rounded-lg p-4 font-mono text-sm border border-white/5 inline-block mt-2 w-max max-w-full">
                         <span class="text-accent">#</span> リアルタイムCV &middot; GPUパイプライン &middot; 深層学習
                     </div>
@@ -288,12 +288,12 @@
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3 font-mono">
                     <span class="text-accent text-lg">04.</span> Eruption_Engine <span class="text-textMuted text-base font-normal">// 研究開発用テストベッド</span>
                 </h3>
-                <a href="https://github.com/eruptionlabs/eruption-engine/" target="_blank" rel="noopener noreferrer" class="text-sm font-mono text-accent hover:text-white transition-colors border-b border-accent/30 hover:border-white/50 self-start md:self-auto">[GitHub リポジトリ]</a>
+                <a href="https://github.com/eruptionlabs/eruption-engine/" target="_blank" rel="noopener noreferrer" class="text-sm font-mono text-accent hover:text-white transition-colors border-b border-accent/30 hover:border-white/50 self-start md:self-auto">[GitHubリポジトリ]</a>
             </div>
 
             <div class="glass-panel bg-card rounded-2xl border-l-4 border-l-accent overflow-hidden card-glow">
                 <div class="relative aspect-[21/9] bg-black overflow-hidden">
-                    <img src="./eruption-engine/vulcao.jpg" alt="Eruption Engine: parana_field テストシーン" class="gallery-img w-full h-full object-cover cursor-zoom-in" data-caption="Eruption Engine: parana_field テストシーン">
+                    <img src="./eruption-engine/vulcao.jpg" alt="Eruption Engine：parana_fieldテストシーン" class="gallery-img w-full h-full object-cover cursor-zoom-in" data-caption="Eruption Engine：parana_fieldテストシーン">
                 </div>
 
                 <div class="p-6 md:p-8 flex flex-col gap-8">
@@ -303,52 +303,52 @@
                         <span class="px-3 py-1.5 rounded-full bg-accent/10 text-accent border border-accent/20">Vulkan 1.3</span>
                     </div>
 
-                    <p class="text-textMuted text-base leading-relaxed max-w-4xl">Eruption Engine は私の研究開発用テストベッドです。Vulkan 1.3 上の C++17 レンダラーで、自分の画像・マテリアル技術がリアルタイムパイプラインの中で通用するかを、すべてのパスを制御しながら検証しています。アーキテクチャは私が設計し、実装はAI支援プログラミングで進めました。何を作るかを決め、コードをレビューし、GPU上で検証するのは私自身です。ジオラマ風の見た目（傾いたカメラ、ミニチュア風の被写界深度、3Dジオメトリと共存する2Dスプライト）と物理ベースのライティングで描画します。</p>
+                    <p class="text-textMuted text-base leading-relaxed max-w-4xl">Eruption Engineは私の研究開発用テストベッドです。Vulkan 1.3上のC++17レンダラーで、自分の画像・マテリアル技術がリアルタイムパイプラインの中で通用するかを、すべてのパスを制御しながら検証しています。アーキテクチャは私が設計し、実装はAI支援プログラミングで進めました。何を作るかを決め、コードをレビューし、GPU上で検証するのは私自身です。ジオラマ風の見た目（傾いたカメラ、ミニチュア風の被写界深度、3Dジオメトリと共存する2Dスプライト）と物理ベースのライティングで描画します。</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">バックエンド</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">Vulkan 1.3、<span class='text-white'>dynamic_rendering</span>、<span class='text-white'>synchronization2</span>、descriptor indexing によるバインドレステクスチャ。</p>
+                            <p class="text-sm text-textMuted leading-relaxed">Vulkan 1.3、<span class='text-white'>dynamic_rendering</span>、<span class='text-white'>synchronization2</span>、descriptor indexingによるバインドレステクスチャ。</p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">ライティング</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">5 つのアタッチメントを持つ G-buffer によるディファードシェーディングと、数百の動的ライト。エネルギー補償付き Cook-Torrance、IBL、イラディアンスプローブ。</p>
+                            <p class="text-sm text-textMuted leading-relaxed">5つのアタッチメントを持つGバッファによるディファードシェーディングと、数百の動的ライト。エネルギー補償付きCook-Torrance、IBL、イラディアンスプローブ。</p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">シャドウ</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">太陽光にはカスケードシャドウマップ、点光源にはキューブマップ。シャドウ用の LOD はメッシュの LOD から独立しています。</p>
+                            <p class="text-sm text-textMuted leading-relaxed">太陽光にはカスケードシャドウマップ、点光源にはキューブマップ。シャドウ用のLODはメッシュのLODから独立しています。</p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">天候と大気</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">40 種類の天候、ジオメトリで遮蔽される雨と雪、濡れた路面、霧、昼夜サイクル、ボリュメトリッククラウド。</p>
+                            <p class="text-sm text-textMuted leading-relaxed">40種類の天候、ジオメトリで遮蔽される雨と雪、濡れた路面、霧、昼夜サイクル、ボリュメトリッククラウド。</p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">水面とポストプロセス</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">ゲルストナー波、反射と屈折。物理的な錯乱円によるティルトシフト、ブルーム、ゴッドレイ、AgX / ACES トーンマッピング、アップスケール付き FXAA。</p>
+                            <p class="text-sm text-textMuted leading-relaxed">ゲルストナー波、反射と屈折。物理的な錯乱円によるティルトシフト、ブルーム、ゴッドレイ、AgX / ACESトーンマッピング、アップスケール付きFXAA。</p>
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-2">
                             <h4 class="font-mono text-white font-bold text-sm">地形・スプライト・ツール</h4>
-                            <p class="text-sm text-textMuted leading-relaxed">セル単位の地形メッシュとマテリアルブレンド、メッシュと植生の LOD を備えた glTF、インスタンシング。実行時生成のノーマルマップを持つ 2D スプライト。保存即反映の CSS 記述 HUD とビジュアルエディタ（Caldera）。</p>
+                            <p class="text-sm text-textMuted leading-relaxed">セル単位の地形メッシュとマテリアルブレンド、メッシュと植生のLODを備えたglTF、インスタンシング。実行時生成のノーマルマップを持つ2Dスプライト。ホットリロード対応のCSS記述HUDとビジュアルエディター（Caldera）。</p>
                         </div>
                     </div>
 
                     <div class="border-t border-white/5 pt-6 flex flex-col gap-4">
                         <div class="flex flex-col gap-1">
-                            <div class="font-mono text-xs text-textMuted uppercase tracking-widest">エディタ</div>
-                            <p class="text-sm text-textMuted leading-relaxed">実機（RTX 4060 Laptop）でのキャプチャ。CPU と GPU パスごとのテレメトリを表示しています。</p>
+                            <div class="font-mono text-xs text-textMuted uppercase tracking-widest">エディター</div>
+                            <p class="text-sm text-textMuted leading-relaxed">実機（RTX 4060 Laptop）の画面キャプチャ。CPUとGPUパスごとのテレメトリを表示しています。</p>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <figure class="flex flex-col gap-2">
                                 <div class="relative aspect-[16/9] rounded-lg overflow-hidden border border-white/10 bg-black">
-                                    <img src="./eruption-engine/editor_cena.jpg" alt="エディタ：シーン、8,274 インスタンスの階層、インスペクタ、パス別 GPU テレメトリ" class="gallery-img w-full h-full object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="エディタ：シーン、8,274 インスタンスの階層、インスペクタ、パス別 GPU テレメトリ" loading="lazy">
+                                    <img src="./eruption-engine/editor_cena.jpg" alt="エディター：シーン、8,274インスタンスの階層、インスペクター、パス別GPUテレメトリ" class="gallery-img w-full h-full object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="エディター：シーン、8,274インスタンスの階層、インスペクター、パス別GPUテレメトリ" loading="lazy">
                                 </div>
-                                <figcaption class="font-mono text-xs text-textMuted/80 leading-relaxed">エディタ：シーン、8,274 インスタンスの階層、インスペクタ、パス別 GPU テレメトリ</figcaption>
+                                <figcaption class="font-mono text-xs text-textMuted/80 leading-relaxed">エディター：シーン、8,274インスタンスの階層、インスペクター、パス別GPUテレメトリ</figcaption>
                             </figure>
                             <figure class="flex flex-col gap-2">
                                 <div class="relative aspect-[16/9] rounded-lg overflow-hidden border border-white/10 bg-black">
-                                    <img src="./eruption-engine/editor_regras.jpg" alt="ビジュアルなルールシートと、生成される Luau コード" class="gallery-img w-full h-full object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="ビジュアルなルールシートと、生成される Luau コード" loading="lazy">
+                                    <img src="./eruption-engine/editor_regras.jpg" alt="ビジュアルなルールシートと、生成されるLuauコード" class="gallery-img w-full h-full object-cover cursor-zoom-in hover:scale-105 transition-transform duration-300" data-caption="ビジュアルなルールシートと、生成されるLuauコード" loading="lazy">
                                 </div>
-                                <figcaption class="font-mono text-xs text-textMuted/80 leading-relaxed">ビジュアルなルールシートと、生成される Luau コード</figcaption>
+                                <figcaption class="font-mono text-xs text-textMuted/80 leading-relaxed">ビジュアルなルールシートと、生成されるLuauコード</figcaption>
                             </figure>
                         </div>
                     </div>
@@ -358,7 +358,7 @@
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div class="flex flex-col gap-1">
                                 <div class="font-mono text-xl md:text-2xl text-accent font-bold">29,808,014</div>
-                                <div class="font-mono text-xs text-textMuted">シーン内の三角形</div>
+                                <div class="font-mono text-xs text-textMuted">シーン内の三角形数</div>
                             </div>
                             <div class="flex flex-col gap-1">
                                 <div class="font-mono text-xl md:text-2xl text-accent font-bold">8,274</div>
@@ -373,7 +373,7 @@
                                 <div class="font-mono text-xs text-textMuted">マテリアル</div>
                             </div>
                         </div>
-                        <p class="font-mono text-xs text-textMuted/80">このテストマップは一般的な使用を想定したものではなく、オクルージョンと LOD に負荷をかけるために構築されています。</p>
+                        <p class="font-mono text-xs text-textMuted/80">このテストマップは実際の利用を想定したものではなく、オクルージョンとLODに負荷をかけるために、あえて重く作っています。</p>
                     </div>
 
                     <div class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
@@ -383,7 +383,7 @@
                     <!-- Demo jogável: só a imagem até o clique; o iframe (motor + jogo) nasce no clique. -->
                     <div class="flex flex-col gap-3">
                         <h4 class="font-mono text-lg text-white">Fumarola Rally：ライブデモ</h4>
-                        <p class="text-textMuted text-sm leading-relaxed">エンジンで作った2.5Dレースゲーム。3Dコースに2Dスプライトの車を走らせます。ブラウザ（WebGL2）で動きます。クリックした時だけ読み込みます。</p>
+                        <p class="text-textMuted text-sm leading-relaxed">エンジンで作った2.5Dレースゲーム。3Dコースに2Dスプライトの車を走らせます。ブラウザ（WebGL2）で動作し、クリックするまで読み込みません。</p>
                         <div id="fumarola-demo" class="relative aspect-video rounded-xl overflow-hidden border border-white/10 bg-black">
                             <img src="./eruption-engine/fumarola_rally.jpg" alt="Fumarola Rally：Eruption Engineの2.5Dレース" class="absolute inset-0 w-full h-full object-cover opacity-70" loading="lazy">
                             <button type="button" class="absolute inset-0 m-auto h-14 w-max px-6 rounded-full bg-accent/90 hover:bg-accent text-black font-mono font-bold transition-colors" onclick="var d=document.getElementById('fumarola-demo');d.innerHTML='<iframe class=&quot;absolute inset-0 w-full h-full&quot; src=&quot;https://halen48.github.io/fumarola-rally/&quot; title=&quot;Fumarola Rally&quot; allow=&quot;fullscreen; gamepad; autoplay&quot; allowfullscreen></iframe>';">&#9654; ブラウザでプレイ</button>
@@ -392,7 +392,7 @@
                     </div>
 
 
-                    <p class="font-mono text-xs text-textMuted/70 leading-relaxed">Fumarola Rally はサードパーティの CC0 アセットを使用しています。</p>
+                    <p class="font-mono text-xs text-textMuted/70 leading-relaxed">Fumarola RallyはサードパーティのCC0アセットを使用しています。</p>
                 </div>
             </div>
         </section>
@@ -413,7 +413,7 @@
                         <div class="font-mono text-sm"><span class="text-accent">gui@portfolio</span>:<span class="text-blue-400">~</span>$ ./collaborate.sh</div>
                         <h3 class="text-2xl md:text-3xl font-bold text-white">共同研究・ご相談</h3>
                         <p class="text-textMuted leading-relaxed max-w-3xl">
-                            リモートでのコンサルティング、研究開発での協業、プロジェクトのご相談を承ります。対応できる課題は次のとおりです：
+                            リモートでのコンサルティング、研究開発での協業、プロジェクトのご相談を承ります。対応できる課題は次のとおりです。
                         </p>
                     </div>
 
@@ -434,7 +434,7 @@
                         </div>
                         <div class="glass-panel bg-darker/60 p-5 rounded-xl border-white/10 flex flex-col gap-3 card-glow">
                             <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.247m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.247"></path></svg>
-                            <h4 class="font-mono text-white font-bold">リアルタイム・プロトタイピング</h4>
+                            <h4 class="font-mono text-white font-bold">リアルタイムプロトタイピング</h4>
                             <p class="text-sm text-textMuted leading-relaxed">
                                 画像・マテリアル技術を、本番投入前にVulkanレンダラー内で検証します。CUDA/OpenCLによる計算、GPUプロファイリング。
                             </p>
@@ -461,7 +461,7 @@
         <section class="flex flex-col gap-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s;">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <h3 class="text-2xl font-bold text-white flex items-center gap-3 font-mono">
-                    <span class="text-accent text-lg">05.</span> 経歴_と_教育
+                    <span class="text-accent text-lg">05.</span> 経歴_と_学歴
                 </h3>
                 <a href="https://www.linkedin.com/in/g-novaes" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 glass-panel rounded-full hover:bg-[#0A66C2]/10 hover:border-[#0A66C2]/30 transition-all border-white/10 group text-[#0A66C2] card-glow text-sm font-mono self-start md:self-auto">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -475,17 +475,17 @@
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_8px_rgba(0,240,255,0.8)] group-hover:scale-150 transition-transform"></div>
                     <h4 class="text-xl font-bold text-white">講師・研究室責任者</h4>
-                    <p class="text-accent font-mono text-sm mb-2">サントス・カトリック大学 (UniSantos) | 2021 - 現在</p>
+                    <p class="text-accent font-mono text-sm mb-2">サントス・カトリック大学（UniSantos） | 2021 - 現在</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        コンピュータグラフィックスとGPUによるビジュアルコンピューティングの研究プロジェクトを主導。<span class="text-white font-medium">分散システム、コンピュータグラフィックス、画像処理、リアルタイムレンダリング、GPUプログラミング（CUDA/OpenCL）</span>のコースを指導。応用工学と学術的厳密さの融合に注力。
+                        コンピュータグラフィックスとGPUによるビジュアルコンピューティングの研究プロジェクトを率いています。<span class="text-white font-medium">分散システム、コンピュータグラフィックス、画像処理、リアルタイムレンダリング、GPUプログラミング（CUDA/OpenCL）</span>の講義を担当し、実践的なエンジニアリングと学術的な厳密さの両立を重視しています。
                     </p>
                 </div>
 
-                <!-- ポストドク -->
+                <!-- ポスドク -->
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_8px_rgba(0,240,255,0.8)] group-hover:scale-150 transition-transform"></div>
                     <h4 class="text-xl font-bold text-white">ポスドク研究員</h4>
-                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学 (USP) | 2025 - 現在</p>
+                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学（USP） | 2025 - 現在</p>
                     <p class="text-textMuted text-sm leading-relaxed">
                         画像からのPBRマテリアル自動生成と、古いゲームアセットのテクスチャ復元に関する深層学習研究。未発表のため、結果は「主なプロジェクト」で紹介しています。
                     </p>
@@ -497,17 +497,17 @@
                     <h4 class="text-xl font-bold text-white">査読者</h4>
                     <p class="text-accent font-mono text-sm mb-2">Journal of Visual Communication and Image Representation (Elsevier) | 2024 - 現在</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        コンピュータビジョン、画像処理、コンピュータグラフィックス分野の最先端の研究を評価し、国際的な科学コミュニティに貢献しています。
+                        コンピュータビジョン、画像処理、コンピュータグラフィックス分野の論文査読を通じて、国際的な研究コミュニティに貢献しています。
                     </p>
                 </div>
 
                 <!-- IEEE Member -->
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_8px_rgba(0,240,255,0.8)] group-hover:scale-150 transition-transform"></div>
-                    <h4 class="text-xl font-bold text-white">IEEE メンバー</h4>
+                    <h4 class="text-xl font-bold text-white">IEEE会員</h4>
                     <p class="text-accent font-mono text-sm mb-2">IEEE Young Professionals | 2021 - 現在</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        グローバルな技術コミュニティに参加し、業界標準や研究の最新動向を把握するとともに、世界中のエンジニアとネットワークを構築しています。
+                        グローバルな技術コミュニティに参加し、業界標準や研究の最新動向を把握するとともに、世界中のエンジニアと交流しています。
                     </p>
                 </div>
 
@@ -517,7 +517,7 @@
                     <h4 class="text-xl font-bold text-white">コンピュータビジョンエンジニア</h4>
                     <p class="text-accent font-mono text-sm mb-2">物流・自動化分野の機密プロジェクト | 2025</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        24時間365日稼働の重要な産業環境向けに、リアルタイムのコンピュータビジョンシステムを開発・最適化。高性能な画像処理、検出アルゴリズム、低遅延で堅牢なハードウェア・ソフトウェア統合に注力。
+                        24時間365日稼働するミッションクリティカルな産業現場向けに、リアルタイムのコンピュータビジョンシステムを開発・最適化。高性能な画像処理、検出アルゴリズム、低遅延で堅牢なハードウェア・ソフトウェア統合に注力。
                     </p>
                 </div>
 
@@ -525,9 +525,9 @@
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-white/40 group-hover:bg-accent group-hover:scale-150 transition-all"></div>
                     <h4 class="text-xl font-bold text-white">データスペシャリスト（GPUパイプライン）</h4>
-                    <p class="text-accent font-mono text-sm mb-2">Hospital das Clínicas da USP | 2020 - 2024</p>
+                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学医学部附属病院（HC-USP） | 2020 - 2024</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        3Dボリュメトリックデータセット向けの大規模画像処理パイプラインを構築。画像セグメンテーション用のディープラーニングモデルをGPUで開発。そこで培ったHPCスキルは、テクスチャ処理やリアルタイム可視化にそのまま応用できます。
+                        3Dボリュメトリックデータセット向けの大規模画像処理パイプラインを構築。画像セグメンテーション用の深層学習モデルをGPU上で開発。そこで培ったHPCスキルは、テクスチャ処理やリアルタイム可視化にそのまま応用できます。
                     </p>
                 </div>
 
@@ -535,29 +535,29 @@
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-white/40 group-hover:bg-accent group-hover:scale-150 transition-all"></div>
                     <h4 class="text-xl font-bold text-white">博士（画像処理およびビジュアルコンピューティング）</h4>
-                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学 (USP) | 2020 - 2024</p>
+                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学（USP） | 2020 - 2024</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        ハーフトーン画像（漫画）の深層学習による超解像に関する博士論文。IEEE Access 論文と特許出願につながりました。
+                        ハーフトーン画像（漫画）の深層学習による超解像に関する博士論文。IEEE Access論文と特許出願につながりました。
                     </p>
                 </div>
 
                 <!-- Masters -->
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-white/40 group-hover:bg-accent group-hover:scale-150 transition-all"></div>
-                    <h4 class="text-xl font-bold text-white">マイクロエレクトロニクス 修士</h4>
-                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学 (USP) | 2017 - 2019</p>
+                    <h4 class="text-xl font-bold text-white">修士（マイクロエレクトロニクス）</h4>
+                    <p class="text-accent font-mono text-sm mb-2">サンパウロ大学（USP） | 2017 - 2019</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        電気工学プログラム（マイクロエレクトロニクス専攻）。AI駆動の最適化（タブーサーチ）を用いた、動的再構成可能なNetwork-on-Chip (NoC) システムのためのタスクマッピングおよび配置最適化に関する研究を展開。
+                        電気工学プログラム（マイクロエレクトロニクス専攻）。AI駆動の最適化（タブーサーチ）を用いて、動的再構成可能なNetwork-on-Chip（NoC）のタスクマッピングと配置最適化を研究しました。
                     </p>
                 </div>
 
                 <!-- Graduation -->
                 <div class="relative pl-8 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-white/40 group-hover:bg-accent group-hover:scale-150 transition-all"></div>
-                    <h4 class="text-xl font-bold text-white">コンピュータサイエンス 学士</h4>
-                    <p class="text-accent font-mono text-sm mb-2">サントス・カトリック大学 (UniSantos) | 2012 - 2015</p>
+                    <h4 class="text-xl font-bold text-white">学士（コンピュータサイエンス）</h4>
+                    <p class="text-accent font-mono text-sm mb-2">サントス・カトリック大学（UniSantos） | 2012 - 2015</p>
                     <p class="text-textMuted text-sm leading-relaxed">
-                        低レベルプログラミングとソフトウェアアーキテクチャの基盤を構築。卒業論文では、遺伝的アルゴリズムと自己組織化マップ（SOM）を用いたAI駆動のMIDI音楽ジェネレーターを開発。
+                        低レベルプログラミングとソフトウェアアーキテクチャの基礎を学びました。卒業論文では、遺伝的アルゴリズムと自己組織化マップ（SOM）を用いたAI駆動のMIDI音楽ジェネレーターを開発しました。
                     </p>
                 </div>
 
@@ -576,14 +576,14 @@
                 <!-- Project 4: NoC / FPGA Hardware Optimization -->
                 <div class="glass-panel bg-card hover:bg-cardHover rounded-2xl p-8 flex flex-col gap-5 border-l-4 border-l-white/20 hover:border-l-accent card-glow group">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
-                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">FPGA NoC ハードウェア最適化</h4>
+                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">FPGA NoCハードウェア最適化</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-accent/10 text-accent border border-accent/20">
                             特許出願 BR1020220061947
                         </span>
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        アダプティブ・タブー探索アルゴリズムを使用し、プログラマブル集積回路（FPGA）向けNetwork-on-Chip（NoC）システムのタスクマッピングおよびモジュール配置に関する特許出願済みの方法を開発。IEEE LASCASにて発表。
+                        適応型タブーサーチを用いて、プログラマブル集積回路（FPGA）向けNetwork-on-Chip（NoC）システムのタスクマッピングとモジュール配置を行う手法を開発（特許出願済み）。IEEE LASCASにて発表。
                     </p>
                     
                     <div class="bg-black/30 rounded-lg p-4 font-mono text-sm border border-white/5 inline-block mt-2">
@@ -594,18 +594,18 @@
                 <!-- Project 5: 医療画像AI (MAMOs) -->
                 <div class="glass-panel bg-card hover:bg-cardHover rounded-2xl p-8 flex flex-col gap-5 border-l-4 border-l-white/20 hover:border-l-accent card-glow group">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
-                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">医療画像AI (MAMOs)</h4>
+                        <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">医療画像AI（MAMOs）</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">
                             臨床腫瘍学
                         </span>
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        GPUアクセラレーションによるディープラーニングを適用し、大規模な3Dボリューメトリック医療データセットを処理。マンモグラフィにおけるがん検出のための畳み込みニューラルネットワークのエンドツーエンドのトレーニングに注力。Journal of Clinical Oncology誌（ASCO）に抄録掲載。
+                        GPUによる深層学習で、大規模な3Dボリュメトリック医療データセットを処理。マンモグラフィでのがん検出に向けた畳み込みニューラルネットワークのエンドツーエンド学習に注力。Journal of Clinical Oncology誌（ASCO）に抄録掲載。
                     </p>
                     
                     <div class="bg-black/30 rounded-lg p-4 font-mono text-sm border border-white/5 inline-block mt-2">
-                        <span class="text-accent">#</span> ディープラーニング · ボリュームレンダリング · 画像処理
+                        <span class="text-accent">#</span> 深層学習 · ボリュームレンダリング · 画像処理
                     </div>
                 </div>
 
@@ -615,12 +615,12 @@
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
                         <h4 class="text-2xl font-bold text-white group-hover:text-accent transition-colors">MMORPGサーバーエミュレーションとネットワーク設計</h4>
                         <span class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                            C/C++ Network
+                            C/C++ ネットワーク
                         </span>
                     </div>
                     
                     <p class="text-textMuted text-base leading-relaxed">
-                        MMORPGサーバーエミュレータ（C/C++）の保守と最適化に10年以上携わり、プロトコル層で高並行ネットワーク設計を扱ってきました。数千の同時接続を処理するための低レベルソケットプログラミング、マルチスレッディング、高速なバイナリパケット処理を含む、RTS風の複雑なメカニクスを処理するためのサーバーアーキテクチャの再設計。
+                        MMORPGサーバーエミュレーター（C/C++）の保守と最適化に10年以上携わり、プロトコル層で大量同時接続を前提としたネットワーク設計を扱ってきました。RTS風の複雑なゲームメカニクスに対応できるようサーバーアーキテクチャを再設計し、低レベルのソケットプログラミング、マルチスレッド化、数千の同時接続をさばく高速なバイナリパケット処理を手がけました。
                     </p>
 
                     <!-- Image Gallery Placeholders -->
@@ -641,36 +641,36 @@
                 <!-- Off the clock -->
                 <div class="glass-panel bg-card p-6 rounded-2xl border border-white/5 md:col-span-2 flex flex-col gap-4">
                     <p class="text-lg text-textMuted leading-relaxed">
-                        私のCGとRPGへの情熱は、2001年半ばに初めて「クロノ・クロス」をプレイした時に始まりました。現在、午前3時にシェーダーのデバッグをしていない時は、おそらく居酒屋でルフィのコスプレをしているか、ドラゴンクエストでメタルスライムを狩ってレベル上げをしています。正直、メタルスライムに逃げられるより、Vulkanのバリデーションエラーの方がしんどいです。
+                        CGとRPGにハマったきっかけは、2001年の半ばに初めて遊んだ『クロノ・クロス』です。今は、深夜3時にシェーダーをデバッグしていなければ、だいたい居酒屋でルフィのコスプレをしているか、『ドラゴンクエスト』でメタル狩りをしています。正直、「メタルスライムは にげだした！」の一行より、Vulkanのバリデーションエラーのほうがよっぽどこたえます。
                     </p>
                     <p class="text-lg text-textMuted leading-relaxed">
-                        また、一度だけ<a href="https://www.youtube.com/@vs.maquina" class="text-[#FF0000] hover:underline" target="_blank" rel="noopener noreferrer">YouTube</a>で偶然バズったことがあります（5万5000再生、内容については聞かないでください）。
+                        また、科学解説チャンネル<a href="https://www.youtube.com/@vs.maquina" class="text-[#FF0000] hover:underline" target="_blank" rel="noopener noreferrer">@vs.maquina</a>もやっていて、一度だけうっかりバズりました（5.5万回再生。何の動画かは聞かないでください）。
                     </p>
-                    <p class="text-textMuted italic">「はい、特許を2件出願し、IEEEで論文も発表しています。ファイナルファンタジーVIの実績も100%達成しました。どちらにも同じくらいの執念が必要でした。」</p>
+                    <p class="text-textMuted italic">「特許を2件出願して、IEEEで論文も発表しました。『ファイナルファンタジーVI』の実績もコンプ済みです。どちらも同じくらいの執念が必要でした。」</p>
                 </div>
                 <!-- Santos -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col">
                     <div class="h-56 overflow-hidden cursor-zoom-in">
-                        <img src="santos.jpeg" alt="Santos, SP" class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-caption="拠点: ブラジルのサントスという海沿いの町に住んでいます。静かな海辺の暮らしは、研究に深く集中するのに最適な環境です。" onerror="this.style.display='none'">
+                        <img src="santos.jpeg" alt="Santos, SP" class="gallery-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-caption="拠点：ブラジルの港町サントスに住んでいます。海辺の静かな暮らしのおかげで、研究にじっくり集中できます。" onerror="this.style.display='none'">
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: 拠点</h4>
-                        <p class="text-textMuted text-base leading-relaxed">ブラジルのサントスという海沿いの町に住んでいます。静かな海辺の暮らしは、研究に深く集中するのに最適な環境です。</p>
+                        <p class="text-textMuted text-base leading-relaxed">ブラジルの港町サントスに住んでいます。海辺の静かな暮らしのおかげで、研究にじっくり集中できます。</p>
                     </div>
                 </div>
 
                 <!-- MTG Collection -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col">
                     <div class="h-64 flex gap-1 bg-black/50 p-1">
-                        <a href="MTG.jpeg" target="_blank" class="w-1/2 h-full overflow-hidden rounded-l-xl cursor-zoom-in relative group/img"><img src="MTG.jpeg" alt="MTG 1" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="カードゲーム: マジック：ザ・ギャザリングの熱心なコレクター兼プレイヤー。" onerror="this.style.display='none'"><div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div></a>
+                        <a href="MTG.jpeg" target="_blank" class="w-1/2 h-full overflow-hidden rounded-l-xl cursor-zoom-in relative group/img"><img src="MTG.jpeg" alt="MTG 1" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="カードゲーム：『マジック：ザ・ギャザリング』のコレクター兼プレイヤーです。" onerror="this.style.display='none'"><div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div></a>
                         <div class="w-1/2 flex flex-col gap-1 h-full">
-                            <a href="mtg2.jpeg" target="_blank" class="h-1/2 overflow-hidden rounded-tr-xl cursor-zoom-in relative group/img"><img src="mtg2.jpeg" alt="MTG 2" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="カードゲーム: 戦略的なデッキ構築と複雑なルールの絡み合いは、ソフトウェア設計によく似ています。" onerror="this.style.display='none'"><div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div></a>
-                            <a href="MTG-ff.jpeg" target="_blank" class="h-1/2 overflow-hidden rounded-br-xl cursor-zoom-in relative group/img"><img src="MTG-ff.jpeg" alt="MTG FF" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="カードゲーム: 特別なクロスオーバー版や希少なコレクション。" onerror="this.style.display='none'"><div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div></a>
+                            <a href="mtg2.jpeg" target="_blank" class="h-1/2 overflow-hidden rounded-tr-xl cursor-zoom-in relative group/img"><img src="mtg2.jpeg" alt="MTG 2" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="カードゲーム：デッキ構築やルール同士の複雑な噛み合いは、ソフトウェアの設計によく似ています。" onerror="this.style.display='none'"><div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div></a>
+                            <a href="MTG-ff.jpeg" target="_blank" class="h-1/2 overflow-hidden rounded-br-xl cursor-zoom-in relative group/img"><img src="MTG-ff.jpeg" alt="MTG FF" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="カードゲーム：コラボセットやレアなカード。" onerror="this.style.display='none'"><div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div></a>
                         </div>
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: カードゲーム</h4>
-                        <p class="text-textMuted text-base leading-relaxed">マジック：ザ・ギャザリングの熱心なコレクター兼プレイヤー。戦略的なデッキ構築と複雑なルールの絡み合いは、ソフトウェア設計や最適化によく似ています。</p>
+                        <p class="text-textMuted text-base leading-relaxed">『マジック：ザ・ギャザリング』のコレクター兼プレイヤーです。デッキ構築やルール同士の複雑な噛み合いは、ソフトウェアの設計や最適化によく似ています。</p>
                     </div>
                 </div>
 
@@ -678,20 +678,20 @@
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col md:flex-row md:col-span-2">
                     <div class="md:w-1/2 h-64 md:h-auto flex gap-1 bg-black/50 p-1 min-h-[16rem]">
                         <a href="ff_collection_1.jpg" target="_blank" class="w-1/2 h-full overflow-hidden rounded-l-xl cursor-zoom-in relative group/img">
-                            <img src="ff_collection_1.jpg" alt="Retro Collection 1" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：ファイナルファンタジーとJRPGの完全なコレクション。" onerror="this.style.display='none'">
+                            <img src="ff_collection_1.jpg" alt="Retro Collection 1" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：ファイナルファンタジーシリーズとJRPGのコレクション。" onerror="this.style.display='none'">
                             <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
                         </a>
                         <div class="w-1/2 grid grid-cols-3 grid-rows-2 gap-1 h-full">
                             <a href="ff_collection_6.jpg" target="_blank" class="overflow-hidden row-span-2 col-span-1 cursor-zoom-in relative group/img">
-                                <img src="ff_collection_6.jpg" alt="FFXIV Collector's Edition" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：FFXIV 新生エオルゼア コレクターズエディション。" onerror="this.style.display='none'">
+                                <img src="ff_collection_6.jpg" alt="FFXIV Collector's Edition" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：『ファイナルファンタジーXIV: 新生エオルゼア』コレクターズエディション。" onerror="this.style.display='none'">
                                 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
                             </a>
                             <a href="ff_collection_3.jpg" target="_blank" class="overflow-hidden cursor-zoom-in relative group/img">
-                                <img src="ff_collection_3.jpg" alt="Retro Collection 3" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：クロノトリガーなどのスーパーファミコンの名作。" onerror="this.style.display='none'">
+                                <img src="ff_collection_3.jpg" alt="Retro Collection 3" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：『クロノ・トリガー』などスーパーファミコンの名作。" onerror="this.style.display='none'">
                                 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
                             </a>
                             <a href="ff_collection_4.jpg" target="_blank" class="overflow-hidden rounded-tr-xl cursor-zoom-in relative group/img">
-                                <img src="ff_collection_4.jpg" alt="Retro Collection 4" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：日本版の初代PS1パッケージとMTG×ファイナルファンタジー コレクターズボックス。" onerror="this.style.display='none'">
+                                <img src="ff_collection_4.jpg" alt="Retro Collection 4" class="gallery-img w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700" data-caption="レトロコレクション：初代PlayStationの日本版パッケージと、MTG×ファイナルファンタジーのコレクターズボックス。" onerror="this.style.display='none'">
                                 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity pointer-events-none"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></div>
                             </a>
                             <a href="ff_collection_2.jpg" target="_blank" class="overflow-hidden cursor-zoom-in relative group/img">
@@ -706,7 +706,7 @@
                     </div>
                     <div class="p-6 md:w-1/2 flex flex-col justify-center">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: レトロゲームハンター</h4>
-                        <p class="text-textMuted text-base leading-relaxed">ファイナルファンタジーシリーズとスピンオフ作品をすべて集めています。日本旅行の際に関東各地のレトロゲーム店を巡り、オリジナル版を自分の足で探し出してコレクションを完成させました。</p>
+                        <p class="text-textMuted text-base leading-relaxed">ファイナルファンタジーシリーズは、スピンオフも含めて全作そろえています。日本を旅行したときに関東各地のレトロゲームショップを回り、当時のパッケージを自分の足で探してコンプリートしました。</p>
                     </div>
                 </div>
 
@@ -719,47 +719,47 @@
                     </a>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: 音楽と楽器</h4>
-                        <p class="text-textMuted text-base leading-relaxed">ギター、ベース、ドラムの演奏が、プログラミング以外での一番の息抜きです。往年のJRPGサウンドトラックの再現やカバーが得意です。</p>
+                        <p class="text-textMuted text-base leading-relaxed">プログラミング以外の一番の息抜きは、ギター、ベース、ドラムの演奏です。往年のJRPGの曲を再現してカバーするのが得意です。</p>
                     </div>
                 </div>
 
                 <!-- Cosplay -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col">
                     <div class="h-64 overflow-hidden bg-black/20 cursor-zoom-in">
-                        <img src="luffy.jpeg" alt="ルフィのコスプレ" class="gallery-img w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-700" data-caption="アニメとコスプレ: アニメ・ゲームのコミュニティにどっぷり浸かっています。モンキー・D・ルフィのコスプレ。" onerror="this.style.display='none'">
+                        <img src="luffy.jpeg" alt="ルフィのコスプレ" class="gallery-img w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-700" data-caption="アニメとコスプレ：アニメとゲームの界隈にどっぷり浸かっています。モンキー・D・ルフィのコスプレ。" onerror="this.style.display='none'">
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: アニメとコスプレ</h4>
-                        <p class="text-textMuted text-base leading-relaxed">アニメ・ゲームのコミュニティにどっぷり浸かっています。コスプレはモンキー・D・ルフィが中心ですが、『銀魂』や『ワンピース』から『聖闘士星矢』まで幅広く好きです。</p>
+                        <p class="text-textMuted text-base leading-relaxed">アニメとゲームの界隈にどっぷり浸かっています。コスプレはもっぱらモンキー・D・ルフィですが、好きな作品は『銀魂』『ONE PIECE』から『聖闘士星矢』まで幅広いです。</p>
                     </div>
                 </div>
 
                 <!-- Pokemon -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col">
                     <div class="h-64 overflow-hidden bg-black/20 cursor-zoom-in">
-                        <img src="houndoom.jpg" alt="Hellgar" class="gallery-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" data-caption="お気に入りのポケモン: ヘルガー" onerror="this.style.display='none'">
+                        <img src="houndoom.jpg" alt="Hellgar" class="gallery-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" data-caption="推しポケ：ヘルガー" onerror="this.style.display='none'">
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: ポケモン</h4>
-                        <p class="text-textMuted text-base leading-relaxed">お気に入りのポケモン: ヘルガー</p>
+                        <p class="text-textMuted text-base leading-relaxed">推しポケ：ヘルガー</p>
                     </div>
                 </div>
 
                 <!-- Music Band -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col">
                     <div class="h-64 overflow-hidden bg-black/20 cursor-zoom-in">
-                        <img src="guitarra.jpeg" alt="ヴァン・ヘイレン フランケンストラト" class="gallery-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" data-caption="開発・オーディオ環境: Shure SM7B, Yamaha HS7, SSL2インターフェース, Ibanez Frankenstrat. ワークステーション: i7-13700K, RTX 4090 24GB, 128GB RAM." onerror="this.style.display='none'">
+                        <img src="guitarra.jpeg" alt="ヴァン・ヘイレン フランケンストラト" class="gallery-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" data-caption="開発・オーディオ環境：Shure SM7B, Yamaha HS7, SSL2インターフェース, Ibanez Frankenstrat. ワークステーション：i7-13700K, RTX 4090 24GB, 128GB RAM." onerror="this.style.display='none'">
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono">:: オーディオエンジニアリングとDSP</h4>
-                        <p class="text-textMuted text-base leading-relaxed">好きなバンドはヴァン・ヘイレン。青いフランケンストラトも持っています！2009年からギターを弾き始め、2015年からはオーディオエンジニアリングや制作に携わっています。この情熱とプログラミングを融合させ、デジタル信号処理（DSP）に基づくC++プラグインの開発も行っています。</p>
+                        <p class="text-textMuted text-base leading-relaxed">好きなバンドはヴァン・ヘイレン。青いフランケンストラトも持っています！2009年にギターを始め、2015年からはオーディオエンジニアリングと音楽制作もやっています。その延長で、デジタル信号処理（DSP）を使ったC++のオーディオプラグインも作っています。</p>
                     </div>
                 </div>
 
                 <!-- 日本語プログラム -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-0 rounded-2xl border border-white/5 overflow-hidden card-glow group flex flex-col md:flex-row md:col-span-2">
                     <div class="md:w-1/2 overflow-hidden bg-black/20 cursor-zoom-in min-h-[16rem]">
-                        <img src="diploma.jpg" alt="日本語プログラム" class="gallery-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" data-caption="語学学習: 4年間の日本語課程を修了。現在は日常会話レベルで、ビジネスレベルを目指して学習を再開しています。" onerror="this.style.display='none'">
+                        <img src="diploma.jpg" alt="日本語プログラム" class="gallery-img w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" data-caption="語学学習：4年間の日本語課程を修了。現在は日常会話レベルで、ビジネスレベルを目指して学習を再開しています。" onerror="this.style.display='none'">
                     </div>
                     <div class="p-6 md:w-1/2 flex flex-col justify-center">
                         <h4 class="text-xl font-bold text-white mb-2 font-mono flex items-center flex-wrap gap-2">
@@ -769,16 +769,16 @@
                     </div>
                 </div>
 
-                <!-- Steam プロフィール -->
+                <!-- Steamプロフィール -->
                 <div class="glass-panel bg-card hover:bg-cardHover p-6 rounded-2xl border border-white/5 card-glow group md:col-span-2 flex flex-col items-center justify-center">
                     <h4 class="text-xl font-bold text-white mb-6 font-mono flex items-center gap-3">
                         <svg class="w-6 h-6 text-[#66c0f4]" fill="currentColor" viewBox="0 0 24 24"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
-                        Steam プロフィール
+                        Steamプロフィール
                     </h4>
-                    <p class="text-textMuted text-sm mb-6 max-w-xl text-center">歴代のお気に入りゲーム: <strong class="text-accent">ファイナルファンタジーVI</strong>、<strong class="text-accent">ファイナルファンタジータクティクス</strong>、そして<strong class="text-accent">ラグナロクオンライン</strong>です。</p>
+                    <p class="text-textMuted text-sm mb-6 max-w-xl text-center">人生のベストゲーム：<strong class="text-accent">ファイナルファンタジーVI</strong>、<strong class="text-accent">ファイナルファンタジータクティクス</strong>、<strong class="text-accent">ラグナロクオンライン</strong>。</p>
                     
                     <a href="https://steamcommunity.com/id/farilhos" target="_blank" rel="noopener noreferrer" class="w-full max-w-xl transition-transform hover:scale-[1.02] flex justify-center opacity-90 hover:opacity-100">
-                        <img src="https://github-readme-steam-card.vercel.app/status/?steamid=76561198127006290&show_in_game_bg=true&show_recent_game_bg=true&animated_avatar=true" alt="Steam プロフィール" class="w-full rounded-md shadow-2xl border border-white/5" onerror="this.src='https://steamcommunity-a.akamaihd.net/public/shared/images/header/globalheader_logo.png'">
+                        <img src="https://github-readme-steam-card.vercel.app/status/?steamid=76561198127006290&show_in_game_bg=true&show_recent_game_bg=true&animated_avatar=true" alt="Steamプロフィール" class="w-full rounded-md shadow-2xl border border-white/5" onerror="this.src='https://steamcommunity-a.akamaihd.net/public/shared/images/header/globalheader_logo.png'">
                     </a>
 
                     <!-- 実績ショーケース（Steamプロフィールからコピー） -->
